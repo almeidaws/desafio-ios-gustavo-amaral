@@ -21,27 +21,18 @@ struct URLImage: View {
         Group {
             
             imageLoader.isLoading {
-                ZStack {
-                    Rectangle()
-                        .frame(width: 65, height: 45, alignment: .center)
-                        .foregroundColor(.clear)
-                    Image(systemName: "xmark.octagon")
-                }
+                Image(systemName: "xmark.octagon")
             }
             
             imageLoader.isFinished { image in
                 Image(uiImage: image)
-                    .cornerRadius(10)
+                    .resizable()
                     .scaledToFill()
+                    .cornerRadius(10)
             }
             
             imageLoader.isFailed { _ in
-                ZStack {
-                    Rectangle()
-                        .frame(width: 65, height: 45, alignment: .center)
-                        .foregroundColor(.clear)
-                    ActivityIndicator(style: .medium)
-                }
+                ActivityIndicator(style: .medium)
             }
 
         }

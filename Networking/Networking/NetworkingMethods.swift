@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 import Combine
 import UIKit
 
@@ -53,18 +54,25 @@ func get<Body>(from url: URL, queryParameters: [String : Any] = [:], headers: [S
         .eraseToAnyPublisher()
 }
 
-func get(from url: URL, queryParameters: [String : Any] = [:], headers: [String : String] = [:], mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<UIImage>, NetworkError> {
-    let convertedHeaders = HTTPHeaders(headers.map { HTTPHeader(name: $0.key, value: $0.value) })
-    return request(from: url, method: .get, parameters: queryParameters, headers: convertedHeaders, mock: mock)
-        .tryMap { networkResponse -> NetworkResponse<UIImage> in
-            switch networkResponse {
-            case let .nonEmpty(data, statusCode):
-                guard let image = UIImage(data: data) else { throw NetworkError.unableToConvertToUIImage }
-                return NetworkResponse.nonEmpty(image, statusCode)
-            case .empty:
-                throw NetworkError.emptyResponse
+fileprivate let imageCache = AutoPurgingImageCache()
+func get(from url: URL, mock: UIImage? = nil) -> AnyPublisher<UIImage, NetworkError> {
+    if let mock = mock {
+        return Result.Publisher(mock).eraseToAnyPublisher()
+    }
+    
+    if let cachedImage = imageCache.image(withIdentifier: url.absoluteString) {
+        return Result.Publisher(cachedImage).eraseToAnyPublisher()
+    }
+    
+    return Future { promise in
+        AF.request(url).responseImage { response in
+            switch response.result {
+            case .success(let image):
+                imageCache.add(image, withIdentifier: url.absoluteString)
+                promise(.success(image))
+            case .failure(let error):
+                promise(.failure(.dependency(error)))
             }
         }
-        .mapError { $0 as? NetworkError ?? .unknown($0) }
-        .eraseToAnyPublisher()
+    }.eraseToAnyPublisher()
 }

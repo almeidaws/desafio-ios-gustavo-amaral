@@ -16,6 +16,8 @@ struct CharacterRow: View {
         NavigationLink(destination: CharactersView()) {
             HStack {
                 URLImage(url: character.thumbnail.sized(.standardSmall))
+                    .frame(width: 65, height: 45, alignment: .center)
+                    .padding(.trailing)
                 Text(character.name)
             }
         }

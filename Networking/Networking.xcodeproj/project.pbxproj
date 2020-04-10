@@ -16,6 +16,7 @@
 		EC89D1A12440715C004B3FA2 /* CharacterNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D19F2440715B004B3FA2 /* CharacterNetworkingTests.swift */; };
 		EC89D1AA244081B7004B3FA2 /* ComicsNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D1A9244081B7004B3FA2 /* ComicsNetworking.swift */; };
 		EC89D1AC2440823E004B3FA2 /* ComicsNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D1AB2440823E004B3FA2 /* ComicsNetworkingTests.swift */; };
+		ECB046132441041D0088F96B /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = ECB046122441041D0088F96B /* AlamofireImage */; };
 		ECC79BFC243FCD8900CFD33F /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC79BFA243FCD8900CFD33F /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECC79C06243FCDA100CFD33F /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC79C02243FCDA100CFD33F /* HTTPStatusCode.swift */; };
 		ECC79C07243FCDA100CFD33F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC79C03243FCDA100CFD33F /* NetworkError.swift */; };
@@ -64,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC79C1D243FCDFB00CFD33F /* Alamofire in Frameworks */,
+				ECB046132441041D0088F96B /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +207,7 @@
 			name = Networking;
 			packageProductDependencies = (
 				ECC79C1C243FCDFB00CFD33F /* Alamofire */,
+				ECB046122441041D0088F96B /* AlamofireImage */,
 			);
 			productName = Networking;
 			productReference = ECC79BF7243FCD8900CFD33F /* Networking.framework */;
@@ -258,6 +261,7 @@
 			mainGroup = ECC79BED243FCD8900CFD33F;
 			packageReferences = (
 				ECC79C1B243FCDFB00CFD33F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				ECB046112441041D0088F96B /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = ECC79BF8243FCD8900CFD33F /* Products */;
 			projectDirPath = "";
@@ -566,6 +570,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		ECB046112441041D0088F96B /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 		ECC79C1B243FCDFB00CFD33F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -577,6 +589,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		ECB046122441041D0088F96B /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECB046112441041D0088F96B /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
 		ECC79C1C243FCDFB00CFD33F /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ECC79C1B243FCDFB00CFD33F /* XCRemoteSwiftPackageReference "Alamofire" */;
