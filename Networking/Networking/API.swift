@@ -39,4 +39,13 @@ extension API {
             .appendingPathComponent("public")
             .appendingPathComponent("characters")
     }
+    
+    static func comics(byCharacter character: String, _ bundle: Bundle = .main) -> URL {
+        return host(bundle)
+            .appendingPathComponent("v1")
+            .appendingPathComponent("public")
+            .appendingPathComponent("characters")
+            .appendingPathComponent(character)
+            .appendingPathComponent("comics")
+    }
 }

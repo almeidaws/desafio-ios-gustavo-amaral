@@ -15,6 +15,6 @@ struct Character: Decodable, Hashable {
     let thumbnail: Thumbnail
     
     struct Thumbnail: Decodable, Hashable {
-        let path: String
+        let path: URL
     }
 }
