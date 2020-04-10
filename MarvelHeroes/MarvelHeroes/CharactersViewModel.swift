@@ -13,6 +13,7 @@ import Combine
 
 class CharactersViewModel: ObservableObject, AsyncOperation {
     @Published var characters: AsyncResult<[Character], NetworkError> = .loading
+    private var lastFetchedPage = 0
     private var cancellable: AnyCancellable?
     
     func loadCharacters() {
@@ -29,6 +30,28 @@ class CharactersViewModel: ObservableObject, AsyncOperation {
             })
     }
     
+    func characterDidAppear(_ character: Character) {
+        switch characters {
+        case .finished(let loadedCharacters):
+            let index = loadedCharacters.firstIndex { $0 == character } ?? 0
+            if index >= loadedCharacters.count - 10 {
+                lastFetchedPage += 1
+                self.cancellable = getCharacters(limit: 20, offset: lastFetchedPage)
+                    .sink(receiveCompletion: { completion in
+                        switch completion {
+                        case .failure(let error):
+                            self.characters = .failed(error)
+                        default: break
+                        }
+                    }, receiveValue: { characters in
+                        var withNewItems = loadedCharacters
+                        withNewItems.append(contentsOf: characters.mapToCharacters())
+                        self.characters = .finished(withNewItems)
+                    })
+            }
+        default: break
+        }
+    }
     
     func isLoading<Content>(content: () -> Content) -> Content? where Content : View {
         return characters.isLoading(content: content)

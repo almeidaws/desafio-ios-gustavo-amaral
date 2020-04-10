@@ -19,6 +19,7 @@ struct CharactersView: View {
                 viewModel.characters.isFinished { characters in
                     List(characters) { character in
                         CharacterRow(character: character)
+                            .onAppear() { self.viewModel.characterDidAppear(character) }
                     }.listStyle(GroupedListStyle())
                 }
                 

@@ -32,6 +32,7 @@ struct URLImage: View {
             imageLoader.isFinished { image in
                 Image(uiImage: image)
                     .cornerRadius(10)
+                    .scaledToFill()
             }
             
             imageLoader.isFailed { _ in

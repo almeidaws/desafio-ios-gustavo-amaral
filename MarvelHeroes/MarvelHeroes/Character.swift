@@ -9,11 +9,19 @@
 import Foundation
 import Networking
 
-struct Character: Identifiable {
+struct Character: Identifiable, Hashable {
     let id: Int
     let name: String
     let description: String
     let thumbnail: Thumbnail
+    
+    static func == (lhs: Character, rhs: Character) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 extension Character {
