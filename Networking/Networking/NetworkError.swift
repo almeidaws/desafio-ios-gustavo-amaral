@@ -13,12 +13,14 @@ enum NetworkError: Error, Hashable, CustomStringConvertible {
     case emptyResponse
     case dependency(Error)
     case decoding(Error)
+    case unableToConvertToUIImage
     case unknown(Error)
     
     var description: String {
         switch self {
         case .withoutResponse: return "Without response from the request."
         case .emptyResponse: return "The network response is empty."
+        case .unableToConvertToUIImage: return "Unable to convert the response to an image."
         case .dependency(let error): return "Dependency: \(error.localizedDescription)"
         case .decoding(let error): return "Decoding: \(error.localizedDescription)"
         case .unknown(let error): return "Unknown: \(error.localizedDescription)"

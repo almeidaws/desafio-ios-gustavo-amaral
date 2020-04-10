@@ -11,6 +11,23 @@ import Combine
 @testable import Networking
 
 class NetworkingMethodsTests: XCTestCase {
+    
+    func testGetWithImageAsResponse() throws {
+        let url = URL(string: "https://webapi.com")!
+        
+        let imageData = UIImage(data: UIImage.add.pngData()!)!.pngData()!
+        let mock = NetworkResponse.nonEmpty(imageData, .ok)
+        
+        let responseExpectation = self.expectation(description: "Wait network response")
+        let publisher: AnyPublisher<NetworkResponse<UIImage>, NetworkError> = get(from: url, mock: mock)
+        _ = publisher.sink(receiveCompletion: { _ in }) { receivedResponse in
+            if case let .nonEmpty(image, status) = receivedResponse {
+                XCTAssert(image.pngData()! == imageData && status == .ok, "Sent response isn't equal to the received.")
+                responseExpectation.fulfill()
+            }
+        }
+        self.wait(for: [responseExpectation], timeout: 1)
+    }
 
     func testGetWithNonEmptyResponse() throws {
         

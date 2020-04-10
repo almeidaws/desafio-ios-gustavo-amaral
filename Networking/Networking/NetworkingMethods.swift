@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import Combine
+import UIKit
 
 fileprivate func request(from url: URL, method: HTTPMethod, parameters: Parameters?, mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<Data>, NetworkError> {
     return Future<NetworkResponse<Data>, NetworkError> { promise in
@@ -43,6 +44,21 @@ func get<Body>(from url: URL, queryParameters: [String : Any] = [:], mock: Netwo
                 } catch {
                     throw NetworkError.decoding(error)
                 }
+            case .empty:
+                throw NetworkError.emptyResponse
+            }
+        }
+        .mapError { $0 as? NetworkError ?? .unknown($0) }
+        .eraseToAnyPublisher()
+}
+
+func get(from url: URL, queryParameters: [String : Any] = [:], mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<UIImage>, NetworkError> {
+    return request(from: url, method: .get, parameters: queryParameters, mock: mock)
+        .tryMap { networkResponse -> NetworkResponse<UIImage> in
+            switch networkResponse {
+            case let .nonEmpty(data, statusCode):
+                guard let image = UIImage(data: data) else { throw NetworkError.unableToConvertToUIImage }
+                return NetworkResponse.nonEmpty(image, statusCode)
             case .empty:
                 throw NetworkError.emptyResponse
             }
