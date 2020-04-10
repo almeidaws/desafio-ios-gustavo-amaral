@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Comic: Decodable, Hashable {
+struct Comic: Identifiable {
     let id: Int
     let title: String
     let description: String?

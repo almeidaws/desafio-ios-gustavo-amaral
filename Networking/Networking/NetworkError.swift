@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NetworkError: Error, Hashable, CustomStringConvertible {
+public enum NetworkError: Error, Hashable, CustomStringConvertible {
     case withoutResponse
     case emptyResponse
     case dependency(Error)
@@ -16,7 +16,7 @@ enum NetworkError: Error, Hashable, CustomStringConvertible {
     case unableToConvertToUIImage
     case unknown(Error)
     
-    var description: String {
+    public var description: String {
         switch self {
         case .withoutResponse: return "Without response from the request."
         case .emptyResponse: return "The network response is empty."
@@ -27,11 +27,15 @@ enum NetworkError: Error, Hashable, CustomStringConvertible {
         }
     }
     
-    static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+    public var localizedDescription: String {
+        return self.description
+    }
+    
+    public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
         return lhs.localizedDescription == rhs.localizedDescription
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(self.localizedDescription)
     }
 }

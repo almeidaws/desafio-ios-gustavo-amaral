@@ -18,7 +18,7 @@ class CharacterNetworkingTests: XCTestCase {
         let testsBundle = Bundle(identifier: "com.almeidaws.NetworkingTests")!
         _ = getCharacters(limit: 1, offset: 1, bundle: testsBundle, mock: .nonEmpty(data, .ok))
             .sink(receiveCompletion: { _ in }) { characters in
-                let validCharacters = try! JSONDecoder().decode(CommonBody<Character>.self, from: validResponse1.data(using: .utf8)!).data.results
+                let validCharacters = try! JSONDecoder().decode(CommonBody<CharacterBody>.self, from: validResponse1.data(using: .utf8)!).data.results
                 
                 XCTAssert(validCharacters == characters, "Input sent to the function isn't equal to the expected decoded value.")
                 responseExpection.fulfill()
@@ -33,7 +33,7 @@ class CharacterNetworkingTests: XCTestCase {
         let testsBundle = Bundle(identifier: "com.almeidaws.NetworkingTests")!
         _ = getCharacters(limit: 1, offset: 1, bundle: testsBundle, mock: .nonEmpty(data, .ok))
             .sink(receiveCompletion: { _ in }) { characters in
-                let validCharacters = try! JSONDecoder().decode(CommonBody<Character>.self, from: validResponse2.data(using: .utf8)!).data.results
+                let validCharacters = try! JSONDecoder().decode(CommonBody<CharacterBody>.self, from: validResponse2.data(using: .utf8)!).data.results
                 
                 XCTAssert(validCharacters != characters, "Input sent to the function isn't equal to the expected decoded value.")
                 responseExpection.fulfill()
@@ -44,17 +44,18 @@ class CharacterNetworkingTests: XCTestCase {
 
 }
 
-fileprivate let validResponse2 = """
+fileprivate let validResponse2 = #"""
 {
   "code": 200,
   "status": "Ok",
   "copyright": "© 2020 MARVEL",
   "attributionText": "Data provided by Marvel. © 2020 MARVEL",
-  "etag": "8bfba551bed91943b0c0896ac49c82e616f27b8b",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2020 MARVEL</a>",
+  "etag": "70604da4193a9071ee8c35231ab329cac6a25ac2",
   "data": {
-    "offset": 2,
-    "limit": 1,
-    "total": 1493,
+    "offset": 0,
+    "limit": 20,
+    "total": 1,
     "count": 1,
     "results": [
       {
@@ -372,19 +373,20 @@ fileprivate let validResponse2 = """
     ]
   }
 }
-"""
+"""#
 
-fileprivate let validResponse1 = """
+fileprivate let validResponse1 = #"""
 {
   "code": 200,
   "status": "Ok",
   "copyright": "© 2020 MARVEL",
   "attributionText": "Data provided by Marvel. © 2020 MARVEL",
-  "etag": "8b5fa071248f5fbfd8176b1e3a74887b8ef7645b",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2020 MARVEL</a>",
+  "etag": "2e336f12f2d4592e89b299e5466ec6c70aac3f41",
   "data": {
-    "offset": 1,
-    "limit": 1,
-    "total": 1493,
+    "offset": 0,
+    "limit": 20,
+    "total": 1,
     "count": 1,
     "results": [
       {
@@ -493,4 +495,4 @@ fileprivate let validResponse1 = """
     ]
   }
 }
-"""
+"""#

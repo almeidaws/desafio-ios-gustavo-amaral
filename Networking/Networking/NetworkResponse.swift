@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NetworkResponse<Body>: Hashable where Body: Hashable {
+public enum NetworkResponse<Body>: Hashable where Body: Hashable {
     case empty(HTTPStatusCode)
     case nonEmpty(Body, HTTPStatusCode)
     

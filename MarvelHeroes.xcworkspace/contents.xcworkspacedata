@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MarvelHeroes/MarvelHeroes.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:Networking/Networking.xcodeproj">
    </FileRef>
 </Workspace>

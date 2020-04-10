@@ -11,14 +11,14 @@ import Alamofire
 import Combine
 import UIKit
 
-fileprivate func request(from url: URL, method: HTTPMethod, parameters: Parameters?, mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<Data>, NetworkError> {
+fileprivate func request(from url: URL, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders? = nil, mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<Data>, NetworkError> {
     return Future<NetworkResponse<Data>, NetworkError> { promise in
         
         if let mock = mock {
             promise(.success(mock))
         }
         
-        AF.request(url, method: method, parameters: parameters, headers: nil, interceptor: nil, requestModifier: nil) .responseData { response in
+        AF.request(url, method: method, parameters: parameters, headers: headers, interceptor: nil, requestModifier: nil) .responseData { response in
             guard let statusCode = response.response?.status else {
                 promise(.failure(.withoutResponse))
                 return
@@ -33,8 +33,9 @@ fileprivate func request(from url: URL, method: HTTPMethod, parameters: Paramete
     }.eraseToAnyPublisher()
 }
 
-func get<Body>(from url: URL, queryParameters: [String : Any] = [:], mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<Body>, NetworkError> where Body: Decodable {
-    return request(from: url, method: .get, parameters: queryParameters, mock: mock)
+func get<Body>(from url: URL, queryParameters: [String : Any] = [:], headers: [String : String] = [:], mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<Body>, NetworkError> where Body: Decodable {
+    let convertedHeaders = HTTPHeaders(headers.map { HTTPHeader(name: $0.key, value: $0.value) })
+    return request(from: url, method: .get, parameters: queryParameters, headers: convertedHeaders, mock: mock)
         .tryMap { networkResponse -> NetworkResponse<Body> in
             switch networkResponse {
             case let .nonEmpty(data, statusCode):
@@ -52,8 +53,9 @@ func get<Body>(from url: URL, queryParameters: [String : Any] = [:], mock: Netwo
         .eraseToAnyPublisher()
 }
 
-func get(from url: URL, queryParameters: [String : Any] = [:], mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<UIImage>, NetworkError> {
-    return request(from: url, method: .get, parameters: queryParameters, mock: mock)
+func get(from url: URL, queryParameters: [String : Any] = [:], headers: [String : String] = [:], mock: NetworkResponse<Data>? = nil) -> AnyPublisher<NetworkResponse<UIImage>, NetworkError> {
+    let convertedHeaders = HTTPHeaders(headers.map { HTTPHeader(name: $0.key, value: $0.value) })
+    return request(from: url, method: .get, parameters: queryParameters, headers: convertedHeaders, mock: mock)
         .tryMap { networkResponse -> NetworkResponse<UIImage> in
             switch networkResponse {
             case let .nonEmpty(data, statusCode):

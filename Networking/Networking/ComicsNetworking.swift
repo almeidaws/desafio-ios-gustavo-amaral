@@ -9,15 +9,17 @@
 import Foundation
 import Combine
 
-func getComics(byCharacter character: String, limit: Int, offset: Int, bundle: Bundle = .main, mock: NetworkResponse<Data>? = nil) -> AnyPublisher<[Comic], NetworkError> {
-    let publisher: AnyPublisher<NetworkResponse<CommonBody<Comic>>, NetworkError> = get(from: API.comics(byCharacter: character, bundle), queryParameters: [
+public func getComics(byCharacter character: String, limit: Int, offset: Int, bundle: Bundle = .main, mock: NetworkResponse<Data>? = nil) -> AnyPublisher<[ComicBody], NetworkError> {
+    let publisher: AnyPublisher<NetworkResponse<CommonBody<ComicBody>>, NetworkError> = get(from: API.comics(byCharacter: character, bundle), queryParameters: [
         "limit": limit,
         "offset": offset,
-        "apiKey": API.key(bundle)
+        "apikey": API.key(bundle)
+    ], headers: [
+        "Referer" : Bundle.main.bundleIdentifier ?? ""
     ], mock: mock)
     
     return publisher
-        .tryMap { response -> CommonBody<Comic> in
+        .tryMap { response -> CommonBody<ComicBody> in
             switch response {
             case let .nonEmpty(commonBody, _):
                 return commonBody
