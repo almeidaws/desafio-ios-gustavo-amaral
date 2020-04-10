@@ -37,7 +37,6 @@ struct URLImage: View {
 
         }
         .onAppear { self.imageLoader.loadImage(from: self.url) }
-        .onDisappear { self.imageLoader.cancelLoad() }
     }
 }
 
@@ -47,6 +46,7 @@ fileprivate class ImageLoader: ObservableObject, AsyncOperation {
     private var cancellable: AnyCancellable?
     
     func loadImage(from url: URL) {
+        self.image = .loading
         self.cancellable = getThumbnail(from: url)
             .sink(receiveCompletion: { completion in
                 switch completion {

@@ -25,6 +25,9 @@
 		EC89D1C62440897E004B3FA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC89D1C42440897E004B3FA2 /* LaunchScreen.storyboard */; };
 		EC89D1D324408AAF004B3FA2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D1D124408AAF004B3FA2 /* Character.swift */; };
 		EC89D1D424408AAF004B3FA2 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D1D224408AAF004B3FA2 /* Comic.swift */; };
+		ECB0461624410C3F0088F96B /* DetailedCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB0461524410C3F0088F96B /* DetailedCharacterView.swift */; };
+		ECB0461824410E570088F96B /* ContainerOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB0461724410E570088F96B /* ContainerOrientation.swift */; };
+		ECB0461A244118500088F96B /* MostExpensiveHQButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB04619244118500088F96B /* MostExpensiveHQButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +64,9 @@
 		EC89D1C72440897E004B3FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC89D1D124408AAF004B3FA2 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		EC89D1D224408AAF004B3FA2 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		ECB0461524410C3F0088F96B /* DetailedCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterView.swift; sourceTree = "<group>"; };
+		ECB0461724410E570088F96B /* ContainerOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerOrientation.swift; sourceTree = "<group>"; };
+		ECB04619244118500088F96B /* MostExpensiveHQButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostExpensiveHQButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 				EC68A41A2440959E008663EC /* URLImage.swift */,
 				EC4EDE2D2440E76C00BCF29F /* ActivityIndicator.swift */,
 				EC4EDE392440FA9A00BCF29F /* RetryMessage.swift */,
+				ECB0461724410E570088F96B /* ContainerOrientation.swift */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 		EC68A42824409E71008663EC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				ECB0461424410C170088F96B /* DetailedCharacterView */,
 				EC68A418244092B0008663EC /* CharactersView */,
 			);
 			name = Screens;
@@ -186,6 +194,15 @@
 				EC4EDE2B2440D2A400BCF29F /* Thumbnail.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		ECB0461424410C170088F96B /* DetailedCharacterView */ = {
+			isa = PBXGroup;
+			children = (
+				ECB0461524410C3F0088F96B /* DetailedCharacterView.swift */,
+				ECB04619244118500088F96B /* MostExpensiveHQButton.swift */,
+			);
+			name = DetailedCharacterView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,13 +282,16 @@
 				EC4EDE352440E9E200BCF29F /* AsyncOperation.swift in Sources */,
 				EC89D1BA2440897B004B3FA2 /* AppDelegate.swift in Sources */,
 				EC68A41B2440959E008663EC /* URLImage.swift in Sources */,
+				ECB0461A244118500088F96B /* MostExpensiveHQButton.swift in Sources */,
 				EC4EDE332440E9A200BCF29F /* AsyncResult.swift in Sources */,
 				EC89D1BC2440897B004B3FA2 /* SceneDelegate.swift in Sources */,
 				EC89D1D424408AAF004B3FA2 /* Comic.swift in Sources */,
 				EC4EDE2E2440E76C00BCF29F /* ActivityIndicator.swift in Sources */,
 				EC89D1BE2440897B004B3FA2 /* CharactersView.swift in Sources */,
+				ECB0461824410E570088F96B /* ContainerOrientation.swift in Sources */,
 				EC4EDE2C2440D2A400BCF29F /* Thumbnail.swift in Sources */,
 				EC4EDE382440FA4700BCF29F /* CharacterRow.swift in Sources */,
+				ECB0461624410C3F0088F96B /* DetailedCharacterView.swift in Sources */,
 				EC89D1D324408AAF004B3FA2 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

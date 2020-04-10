@@ -15,6 +15,7 @@ struct Thumbnail {
     enum Size: String {
         case standardSmall = "standard_small"
         case portraitUncanny = "portrait_uncanny"
+        case landscapeIncredible = "landscape_incredible"
     }
     
     func sized(_ size: Size) -> URL {

@@ -13,7 +13,7 @@ struct CharacterRow: View {
     let character: Character
     
     var body: some View {
-        NavigationLink(destination: CharactersView()) {
+        NavigationLink(destination: DetailedCharacterView(character: character)) {
             HStack {
                 URLImage(url: character.thumbnail.sized(.standardSmall))
                     .frame(width: 65, height: 45, alignment: .center)
