@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC89D18E243FF08F004B3FA2 /* CharacterNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D18D243FF08F004B3FA2 /* CharacterNetworking.swift */; };
+		EC89D19224406A97004B3FA2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D19124406A97004B3FA2 /* Character.swift */; };
+		EC89D19624406B41004B3FA2 /* CommonBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D19524406B41004B3FA2 /* CommonBody.swift */; };
+		EC89D19A24406D03004B3FA2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D19924406D03004B3FA2 /* API.swift */; };
+		EC89D1A12440715C004B3FA2 /* CharacterNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D19F2440715B004B3FA2 /* CharacterNetworkingTests.swift */; };
 		ECC79BFC243FCD8900CFD33F /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC79BFA243FCD8900CFD33F /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECC79C06243FCDA100CFD33F /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC79C02243FCDA100CFD33F /* HTTPStatusCode.swift */; };
 		ECC79C07243FCDA100CFD33F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC79C03243FCDA100CFD33F /* NetworkError.swift */; };
@@ -28,6 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC89D18D243FF08F004B3FA2 /* CharacterNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNetworking.swift; sourceTree = "<group>"; };
+		EC89D19124406A97004B3FA2 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		EC89D19524406B41004B3FA2 /* CommonBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBody.swift; sourceTree = "<group>"; };
+		EC89D19924406D03004B3FA2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EC89D19F2440715B004B3FA2 /* CharacterNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNetworkingTests.swift; sourceTree = "<group>"; };
 		ECC79BF7243FCD8900CFD33F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC79BFA243FCD8900CFD33F /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		ECC79BFB243FCD8900CFD33F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +70,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC89D18B243FF05E004B3FA2 /* GenericHttpMethods */ = {
+			isa = PBXGroup;
+			children = (
+				ECC79C02243FCDA100CFD33F /* HTTPStatusCode.swift */,
+				ECC79C03243FCDA100CFD33F /* NetworkError.swift */,
+				ECC79C04243FCDA100CFD33F /* NetworkingMethods.swift */,
+				ECC79C05243FCDA100CFD33F /* NetworkResponse.swift */,
+			);
+			name = GenericHttpMethods;
+			sourceTree = "<group>";
+		};
+		EC89D18C243FF06E004B3FA2 /* SpecializedHttpMethods */ = {
+			isa = PBXGroup;
+			children = (
+				EC89D18D243FF08F004B3FA2 /* CharacterNetworking.swift */,
+			);
+			name = SpecializedHttpMethods;
+			sourceTree = "<group>";
+		};
+		EC89D19024406A8C004B3FA2 /* Schemas */ = {
+			isa = PBXGroup;
+			children = (
+				EC89D19124406A97004B3FA2 /* Character.swift */,
+				EC89D19524406B41004B3FA2 /* CommonBody.swift */,
+			);
+			name = Schemas;
+			sourceTree = "<group>";
+		};
+		EC89D19824406CF4004B3FA2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				EC89D19924406D03004B3FA2 /* API.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		ECC79BED243FCD8900CFD33F = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +127,11 @@
 		ECC79BF9243FCD8900CFD33F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				EC89D19824406CF4004B3FA2 /* API */,
+				EC89D19024406A8C004B3FA2 /* Schemas */,
+				EC89D18C243FF06E004B3FA2 /* SpecializedHttpMethods */,
+				EC89D18B243FF05E004B3FA2 /* GenericHttpMethods */,
 				ECC79C1E243FDFAC00CFD33F /* Metadata */,
-				ECC79C02243FCDA100CFD33F /* HTTPStatusCode.swift */,
-				ECC79C03243FCDA100CFD33F /* NetworkError.swift */,
-				ECC79C04243FCDA100CFD33F /* NetworkingMethods.swift */,
-				ECC79C05243FCDA100CFD33F /* NetworkResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -95,6 +141,7 @@
 			children = (
 				ECC79C1F243FDFB800CFD33F /* Metadata */,
 				ECC79C19243FCDBD00CFD33F /* NetworkingMethodsTests.swift */,
+				EC89D19F2440715B004B3FA2 /* CharacterNetworkingTests.swift */,
 			);
 			path = NetworkingTests;
 			sourceTree = "<group>";
@@ -233,8 +280,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC79C06243FCDA100CFD33F /* HTTPStatusCode.swift in Sources */,
+				EC89D19624406B41004B3FA2 /* CommonBody.swift in Sources */,
 				ECC79C09243FCDA100CFD33F /* NetworkResponse.swift in Sources */,
+				EC89D18E243FF08F004B3FA2 /* CharacterNetworking.swift in Sources */,
+				EC89D19224406A97004B3FA2 /* Character.swift in Sources */,
 				ECC79C08243FCDA100CFD33F /* NetworkingMethods.swift in Sources */,
+				EC89D19A24406D03004B3FA2 /* API.swift in Sources */,
 				ECC79C07243FCDA100CFD33F /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC79C1A243FCDBD00CFD33F /* NetworkingMethodsTests.swift in Sources */,
+				EC89D1A12440715C004B3FA2 /* CharacterNetworkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
