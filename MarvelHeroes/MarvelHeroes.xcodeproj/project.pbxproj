@@ -73,6 +73,7 @@
 		ECB0461C24411C4A0088F96B /* MostExpensiveHQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostExpensiveHQView.swift; sourceTree = "<group>"; };
 		ECB0461E24411C8E0088F96B /* MostExpensiveHQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostExpensiveHQViewModel.swift; sourceTree = "<group>"; };
 		ECB04620244130FF0088F96B /* Optional+Declarative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Declarative.swift"; sourceTree = "<group>"; };
+		ECB04623244219EA0088F96B /* MarvelHeroes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarvelHeroes.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +167,7 @@
 		EC89D1B82440897B004B3FA2 /* MarvelHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				ECB04623244219EA0088F96B /* MarvelHeroes.entitlements */,
 				EC68A42724409BAC008663EC /* Views */,
 				EC89D1D024408A7C004B3FA2 /* Models */,
 				EC89D1CD24408989004B3FA2 /* Misc */,
@@ -456,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MarvelHeroes/MarvelHeroes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MarvelHeroes/Preview Content\"";
 				DEVELOPMENT_TEAM = 4EQ948BHF9;
@@ -467,6 +470,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.almeidaws.MarvelHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -476,6 +480,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MarvelHeroes/MarvelHeroes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MarvelHeroes/Preview Content\"";
 				DEVELOPMENT_TEAM = 4EQ948BHF9;
@@ -487,6 +492,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.almeidaws.MarvelHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
