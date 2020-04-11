@@ -167,7 +167,6 @@
 		EC89D1B82440897B004B3FA2 /* MarvelHeroes */ = {
 			isa = PBXGroup;
 			children = (
-				ECB04623244219EA0088F96B /* MarvelHeroes.entitlements */,
 				EC68A42724409BAC008663EC /* Views */,
 				EC89D1D024408A7C004B3FA2 /* Models */,
 				EC89D1CD24408989004B3FA2 /* Misc */,
@@ -187,6 +186,7 @@
 		EC89D1CD24408989004B3FA2 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				ECB04623244219EA0088F96B /* MarvelHeroes.entitlements */,
 				EC89D1B92440897B004B3FA2 /* AppDelegate.swift */,
 				EC89D1BB2440897B004B3FA2 /* SceneDelegate.swift */,
 				EC89D1BF2440897E004B3FA2 /* Assets.xcassets */,
