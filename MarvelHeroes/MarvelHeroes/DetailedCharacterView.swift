@@ -17,6 +17,7 @@ struct DetailedCharacterView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible))
+                        .frame(maxWidth: .infinity)
                     Text(self.character.description)
                         .font(.body)
                         .lineLimit(3)

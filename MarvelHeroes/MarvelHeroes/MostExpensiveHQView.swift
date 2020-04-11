@@ -22,11 +22,11 @@ struct MostExpensiveHQView: View {
                         }.frame(width: geometry.size.width, height: geometry.size.height)
                     }
                     
-                    
                     self.viewModel.hq.isFinished { comic in
                         comic.some { comic in
                             VStack(alignment: .leading) {
                                 URLImage(url: comic.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible))
+                                    .frame(maxWidth: .infinity)
                                 Text(comic.biggestPriceFormatted ?? "Unknown price")
                                     .font(.largeTitle)
                                     .bold()

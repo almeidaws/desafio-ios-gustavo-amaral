@@ -15,12 +15,14 @@ struct URLImage: View {
     let url: URL
     @ObservedObject private var imageLoader = ImageLoader()
     @State private var isPresentingError = false
+    @State private var isHidden = true
     
     var body: some View {
         Group {
-            
             imageLoader.isLoading {
                 ActivityIndicator(style: .medium)
+                    .opacity(isHidden ? 1 : 0)
+                    .animation(.easeInOut)
             }
             
             imageLoader.isFinished { image in
@@ -28,10 +30,15 @@ struct URLImage: View {
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(10)
+                    .opacity(isHidden ? 0 : 1)
+                    .onAppear { withAnimation { self.isHidden = false } }
+                    .onDisappear { withAnimation { self.isHidden = true } }
             }
             
             imageLoader.isFailed { _ in
                 Image(systemName: "xmark.octagon")
+                    .opacity(isHidden ? 1 : 0)
+                    .animation(.easeInOut)
             }
 
         }
