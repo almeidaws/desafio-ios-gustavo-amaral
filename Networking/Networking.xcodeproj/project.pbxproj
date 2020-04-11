@@ -10,6 +10,8 @@
 		EC4EDE282440CCF600BCF29F /* ThumbnailNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE272440CCF600BCF29F /* ThumbnailNetworking.swift */; };
 		EC68A4202440968A008663EC /* CharacterBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68A41F2440968A008663EC /* CharacterBody.swift */; };
 		EC68A423244096A1008663EC /* ComicBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68A422244096A1008663EC /* ComicBody.swift */; };
+		EC7B51BC244223D10068CDB3 /* comicsResponse1.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC7B51BB244223D10068CDB3 /* comicsResponse1.txt */; };
+		EC7B51BE244223E10068CDB3 /* comicsResponse2.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC7B51BD244223E10068CDB3 /* comicsResponse2.txt */; };
 		EC89D18E243FF08F004B3FA2 /* CharacterNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D18D243FF08F004B3FA2 /* CharacterNetworking.swift */; };
 		EC89D19624406B41004B3FA2 /* CommonBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D19524406B41004B3FA2 /* CommonBody.swift */; };
 		EC89D19A24406D03004B3FA2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D19924406D03004B3FA2 /* API.swift */; };
@@ -17,6 +19,8 @@
 		EC89D1AA244081B7004B3FA2 /* ComicsNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D1A9244081B7004B3FA2 /* ComicsNetworking.swift */; };
 		EC89D1AC2440823E004B3FA2 /* ComicsNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89D1AB2440823E004B3FA2 /* ComicsNetworkingTests.swift */; };
 		ECB046132441041D0088F96B /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = ECB046122441041D0088F96B /* AlamofireImage */; };
+		ECB04627244221C60088F96B /* charactersResponse1.txt in Resources */ = {isa = PBXBuildFile; fileRef = ECB04626244221C60088F96B /* charactersResponse1.txt */; };
+		ECB04629244221F90088F96B /* charactersResponse2.txt in Resources */ = {isa = PBXBuildFile; fileRef = ECB04628244221F90088F96B /* charactersResponse2.txt */; };
 		ECC79BFC243FCD8900CFD33F /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC79BFA243FCD8900CFD33F /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECC79C06243FCDA100CFD33F /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC79C02243FCDA100CFD33F /* HTTPStatusCode.swift */; };
 		ECC79C07243FCDA100CFD33F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC79C03243FCDA100CFD33F /* NetworkError.swift */; };
@@ -41,12 +45,16 @@
 		EC4EDE272440CCF600BCF29F /* ThumbnailNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailNetworking.swift; sourceTree = "<group>"; };
 		EC68A41F2440968A008663EC /* CharacterBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBody.swift; sourceTree = "<group>"; };
 		EC68A422244096A1008663EC /* ComicBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBody.swift; sourceTree = "<group>"; };
+		EC7B51BB244223D10068CDB3 /* comicsResponse1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = comicsResponse1.txt; sourceTree = "<group>"; };
+		EC7B51BD244223E10068CDB3 /* comicsResponse2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = comicsResponse2.txt; sourceTree = "<group>"; };
 		EC89D18D243FF08F004B3FA2 /* CharacterNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNetworking.swift; sourceTree = "<group>"; };
 		EC89D19524406B41004B3FA2 /* CommonBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBody.swift; sourceTree = "<group>"; };
 		EC89D19924406D03004B3FA2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EC89D19F2440715B004B3FA2 /* CharacterNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNetworkingTests.swift; sourceTree = "<group>"; };
 		EC89D1A9244081B7004B3FA2 /* ComicsNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsNetworking.swift; sourceTree = "<group>"; };
 		EC89D1AB2440823E004B3FA2 /* ComicsNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsNetworkingTests.swift; sourceTree = "<group>"; };
+		ECB04626244221C60088F96B /* charactersResponse1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = charactersResponse1.txt; sourceTree = "<group>"; };
+		ECB04628244221F90088F96B /* charactersResponse2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = charactersResponse2.txt; sourceTree = "<group>"; };
 		ECC79BF7243FCD8900CFD33F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC79BFA243FCD8900CFD33F /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		ECC79BFB243FCD8900CFD33F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +127,17 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		ECB0462A244222780088F96B /* Response Examples */ = {
+			isa = PBXGroup;
+			children = (
+				ECB04626244221C60088F96B /* charactersResponse1.txt */,
+				ECB04628244221F90088F96B /* charactersResponse2.txt */,
+				EC7B51BB244223D10068CDB3 /* comicsResponse1.txt */,
+				EC7B51BD244223E10068CDB3 /* comicsResponse2.txt */,
+			);
+			name = "Response Examples";
+			sourceTree = "<group>";
+		};
 		ECC79BED243FCD8900CFD33F = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +171,7 @@
 		ECC79C0F243FCDB000CFD33F /* NetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
+				ECB0462A244222780088F96B /* Response Examples */,
 				ECC79C1F243FDFB800CFD33F /* Metadata */,
 				ECC79C19243FCDBD00CFD33F /* NetworkingMethodsTests.swift */,
 				EC89D19F2440715B004B3FA2 /* CharacterNetworkingTests.swift */,
@@ -285,6 +305,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7B51BE244223E10068CDB3 /* comicsResponse2.txt in Resources */,
+				ECB04629244221F90088F96B /* charactersResponse2.txt in Resources */,
+				ECB04627244221C60088F96B /* charactersResponse1.txt in Resources */,
+				EC7B51BC244223D10068CDB3 /* comicsResponse1.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
