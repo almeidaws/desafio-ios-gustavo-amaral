@@ -7,33 +7,41 @@
 //
 
 import SwiftUI
+import Networking
 
 struct CharactersView: View {
     
-    @ObservedObject private var viewModel = CharactersViewModel()
+    @ObservedObject private var viewModel: AnyCharactersViewModel
+    @State private var characters: AsyncResult<[Character], NetworkError> = .loading
+    
+    init(viewModel: AnyCharactersViewModel = .default) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {
             Section {
-                viewModel.characters.isFinished { characters in
+                characters.isFinished { characters in
                     List(characters) { character in
                         CharacterRow(character: character)
                             .onAppear() { self.viewModel.characterDidAppear(character) }
                     }.listStyle(GroupedListStyle())
                 }
                 
-                viewModel.characters.isLoading {
+                characters.isLoading {
                     ActivityIndicator(style: .large)
                 }
                 
-                viewModel.characters.isFailed { networkError in
+                characters.isFailed { networkError in
                     RetryMessage(title: "Oops…", message: networkError.localizedDescription) {
                         self.viewModel.loadCharacters()
                     }
                 }
                 
             }.navigationBarTitle(Text("Marvel's Characters"))
-            }.onAppear { self.viewModel.loadCharacters() }
+        }
+        .onAppear { self.viewModel.loadCharacters() }
+        .onReceive(viewModel.characters) { self.characters = $0 }
     }
 }
 

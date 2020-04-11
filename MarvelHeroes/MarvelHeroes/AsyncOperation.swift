@@ -14,7 +14,7 @@ protocol AsyncOperation {
     associatedtype Resource
     associatedtype ResourceError: Error
     
-    func isFinished<Content: View>(@ViewBuilder content: (Resource) -> Content) -> Content?
-    func isLoading<Content: View>(@ViewBuilder content: () -> Content) -> Content?
-    func isFailed<Content: View>(@ViewBuilder content: (ResourceError) -> Content) -> Content?
+    func isFinished(@ViewBuilder content: (Resource) -> AnyView) -> AnyView?
+    func isLoading(@ViewBuilder content: () -> AnyView) -> AnyView?
+    func isFailed(@ViewBuilder content: (ResourceError) -> AnyView) -> AnyView?
 }

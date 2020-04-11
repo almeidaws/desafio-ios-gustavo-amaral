@@ -46,7 +46,7 @@ struct URLImage: View {
     }
 }
 
-fileprivate class ImageLoader: ObservableObject, AsyncOperation {
+fileprivate class ImageLoader: ObservableObject {
     
     @Published private var image: AsyncResult<UIImage, NetworkError> = .loading
     private var cancellable: AnyCancellable?
