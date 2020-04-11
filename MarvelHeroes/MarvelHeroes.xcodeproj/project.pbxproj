@@ -28,6 +28,9 @@
 		ECB0461624410C3F0088F96B /* DetailedCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB0461524410C3F0088F96B /* DetailedCharacterView.swift */; };
 		ECB0461824410E570088F96B /* ContainerOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB0461724410E570088F96B /* ContainerOrientation.swift */; };
 		ECB0461A244118500088F96B /* MostExpensiveHQButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB04619244118500088F96B /* MostExpensiveHQButton.swift */; };
+		ECB0461D24411C4B0088F96B /* MostExpensiveHQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB0461C24411C4A0088F96B /* MostExpensiveHQView.swift */; };
+		ECB0461F24411C8E0088F96B /* MostExpensiveHQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB0461E24411C8E0088F96B /* MostExpensiveHQViewModel.swift */; };
+		ECB04621244130FF0088F96B /* Optional+Declarative.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB04620244130FF0088F96B /* Optional+Declarative.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +70,9 @@
 		ECB0461524410C3F0088F96B /* DetailedCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterView.swift; sourceTree = "<group>"; };
 		ECB0461724410E570088F96B /* ContainerOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerOrientation.swift; sourceTree = "<group>"; };
 		ECB04619244118500088F96B /* MostExpensiveHQButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostExpensiveHQButton.swift; sourceTree = "<group>"; };
+		ECB0461C24411C4A0088F96B /* MostExpensiveHQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostExpensiveHQView.swift; sourceTree = "<group>"; };
+		ECB0461E24411C8E0088F96B /* MostExpensiveHQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostExpensiveHQViewModel.swift; sourceTree = "<group>"; };
+		ECB04620244130FF0088F96B /* Optional+Declarative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Declarative.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 		EC68A4192440958C008663EC /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				ECB04622244131060088F96B /* Extensions */,
 				EC4EDE362440E9EC00BCF29F /* Async */,
 				EC68A41A2440959E008663EC /* URLImage.swift */,
 				EC4EDE2D2440E76C00BCF29F /* ActivityIndicator.swift */,
@@ -132,6 +139,7 @@
 		EC68A42824409E71008663EC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				ECB0461B24411C340088F96B /* MostExpensiveHQView */,
 				ECB0461424410C170088F96B /* DetailedCharacterView */,
 				EC68A418244092B0008663EC /* CharactersView */,
 			);
@@ -203,6 +211,23 @@
 				ECB04619244118500088F96B /* MostExpensiveHQButton.swift */,
 			);
 			name = DetailedCharacterView;
+			sourceTree = "<group>";
+		};
+		ECB0461B24411C340088F96B /* MostExpensiveHQView */ = {
+			isa = PBXGroup;
+			children = (
+				ECB0461C24411C4A0088F96B /* MostExpensiveHQView.swift */,
+				ECB0461E24411C8E0088F96B /* MostExpensiveHQViewModel.swift */,
+			);
+			name = MostExpensiveHQView;
+			sourceTree = "<group>";
+		};
+		ECB04622244131060088F96B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ECB04620244130FF0088F96B /* Optional+Declarative.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +304,7 @@
 			files = (
 				EC4EDE302440E90F00BCF29F /* CharactersViewModel.swift in Sources */,
 				EC4EDE3A2440FA9A00BCF29F /* RetryMessage.swift in Sources */,
+				ECB04621244130FF0088F96B /* Optional+Declarative.swift in Sources */,
 				EC4EDE352440E9E200BCF29F /* AsyncOperation.swift in Sources */,
 				EC89D1BA2440897B004B3FA2 /* AppDelegate.swift in Sources */,
 				EC68A41B2440959E008663EC /* URLImage.swift in Sources */,
@@ -290,8 +316,10 @@
 				EC89D1BE2440897B004B3FA2 /* CharactersView.swift in Sources */,
 				ECB0461824410E570088F96B /* ContainerOrientation.swift in Sources */,
 				EC4EDE2C2440D2A400BCF29F /* Thumbnail.swift in Sources */,
+				ECB0461D24411C4B0088F96B /* MostExpensiveHQView.swift in Sources */,
 				EC4EDE382440FA4700BCF29F /* CharacterRow.swift in Sources */,
 				ECB0461624410C3F0088F96B /* DetailedCharacterView.swift in Sources */,
+				ECB0461F24411C8E0088F96B /* MostExpensiveHQViewModel.swift in Sources */,
 				EC89D1D324408AAF004B3FA2 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

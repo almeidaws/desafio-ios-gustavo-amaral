@@ -10,11 +10,11 @@ import SwiftUI
 
 // Could be generalized if there's more buttons like this on the project...
 struct MostExpensiveHQButton: View {
-    let action: () -> Void
+    let character: Character
     
     var body: some View {
         HStack {
-            Button(action: action) {
+            NavigationLink(destination: MostExpensiveHQView(character: character)) {
                 HStack {
                     Image(systemName: "book")
                         .font(.body)

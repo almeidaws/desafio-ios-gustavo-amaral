@@ -12,14 +12,14 @@ public struct ComicBody: Decodable, Hashable {
     public let id: Int
     public let title: String
     public let description: String?
-    public let thumbnail: Thumbnail
+    public let thumbnail: CharacterBody.Thumbnail
     public let prices: [Price]
     
     public struct Price: Decodable, Hashable {
-        public let type: String
+        public let type: PriceType
         public let price: Double
         
-        public enum PriceType {
+        public enum PriceType: String, Decodable {
             case printPrice
             case digitalPurchasePrice
         }

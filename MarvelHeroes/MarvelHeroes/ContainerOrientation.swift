@@ -1,5 +1,5 @@
 //
-//  DeviceOrientation.swift
+//  ContainerOrientation.swift
 //  MarvelHeroes
 //
 //  Created by Gustavo Amaral on 10/04/20.

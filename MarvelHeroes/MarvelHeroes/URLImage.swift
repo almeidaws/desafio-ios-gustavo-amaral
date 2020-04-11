@@ -14,25 +14,24 @@ struct URLImage: View {
     
     let url: URL
     @ObservedObject private var imageLoader = ImageLoader()
-    @State var isPresentingError = false
-    @State var isAnimating = false
+    @State private var isPresentingError = false
     
     var body: some View {
         Group {
             
             imageLoader.isLoading {
-                Image(systemName: "xmark.octagon")
+                ActivityIndicator(style: .medium)
             }
             
             imageLoader.isFinished { image in
                 Image(uiImage: image)
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
                     .cornerRadius(10)
             }
             
             imageLoader.isFailed { _ in
-                ActivityIndicator(style: .medium)
+                Image(systemName: "xmark.octagon")
             }
 
         }

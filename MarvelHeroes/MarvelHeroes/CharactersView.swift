@@ -10,8 +10,7 @@ import SwiftUI
 
 struct CharactersView: View {
     
-    @ObservedObject var viewModel = CharactersViewModel()
-    @State var page = 0
+    @ObservedObject private var viewModel = CharactersViewModel()
     
     var body: some View {
         NavigationView {

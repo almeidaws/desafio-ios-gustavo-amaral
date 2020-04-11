@@ -15,15 +15,14 @@ struct DetailedCharacterView: View {
     var body: some View {
         ContainerOrientation { orientation in
             ScrollView {
-                VStack {
+                VStack(alignment: .leading) {
                     URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible))
                     Text(self.character.description)
                         .font(.body)
                         .lineLimit(3)
                         .padding(.top)
-                    MostExpensiveHQButton {
-                        debugPrint("Clicked")
-                    }
+                        .multilineTextAlignment(.leading)
+                    MostExpensiveHQButton(character: self.character)
                     
                 }.padding(.horizontal)
             }
@@ -35,10 +34,10 @@ struct DetailedCharacterView: View {
 
 struct DetailedCharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedCharacterView(character: testCharacter)
+        DetailedCharacterView(character: testCharacter1)
     }
 }
 
 #if DEBUG
-fileprivate let testCharacter = Character(id: 1, name: "Spider-Man", description: "A hero", thumbnail: .init(baseURL: URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16")!, extension: "jpg"))
+fileprivate let testCharacter1 = Character(id: 1, name: "Spider-Man", description: "A hero", thumbnail: .init(baseURL: URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16")!, extension: "jpg"))
 #endif
