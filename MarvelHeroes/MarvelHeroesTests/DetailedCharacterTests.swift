@@ -25,7 +25,7 @@ fileprivate let character = { () -> Character in
 class DetailedCharacterViewTests: XCTestCase {
     
     override class func setUp() {
-        record = true
+//        record = true
     }
     
     func testiPhoneXLightModePortrait() throws {

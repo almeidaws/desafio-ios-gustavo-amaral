@@ -16,7 +16,7 @@ fileprivate let thumbnail = UIImage(contentsOfFile: Bundle(identifier: "com.alme
 class CharactersViewTests: XCTestCase {
     
     override class func setUp() {
-        record = true
+//        record = true
     }
     
     func testiPhoneXLightModePortrait() throws {
