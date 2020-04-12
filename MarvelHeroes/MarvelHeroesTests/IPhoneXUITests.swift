@@ -19,10 +19,6 @@ class IPhoneXUITests: XCTestCase {
 //        record = true
     }
     
-    override func setUpWithError() throws {
-        continueAfterFailure = false
-    }
-    
     func testLightModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
             .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
