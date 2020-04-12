@@ -32,7 +32,7 @@ class IPhoneXUITests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 1)
         
-        assertSnapshot(matching: vc, as: .recursiveDescription(on: .iPhoneX, size: .init(width: 375, height: 812), traits: .iPhoneX(.portrait)))
+        assertSnapshot(matching: vc, as: .image(on: .iPhoneX(.portrait)))
     }
     
     func testLightModeLandscape() throws {
@@ -48,7 +48,7 @@ class IPhoneXUITests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 1)
 
-        assertSnapshot(matching: vc, as: .recursiveDescription(on: .iPhoneX, size: .init(width: 812, height: 375), traits: .iPhoneX(.landscape)))
+        assertSnapshot(matching: vc, as: .image(on: .iPhoneX(.landscape)))
     }
 
     func testDarkModePortrait() throws {
@@ -65,7 +65,7 @@ class IPhoneXUITests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 1)
 
-        assertSnapshot(matching: vc, as: .image(on: .iPhoneX, precision: 0.99, size: .init(width: 375, height: 812), traits: .iPhoneX(.portrait)))
+        assertSnapshot(matching: vc, as: .image(on: .iPhoneX(.portrait)))
     }
 
     func testDarkModeLandscape() throws {
@@ -82,6 +82,6 @@ class IPhoneXUITests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 1)
 
-        assertSnapshot(matching: vc, as: .image(on: .iPhoneX, precision: 0.99, size: .init(width: 812, height: 375), traits: .iPhoneX(.landscape)))
+        assertSnapshot(matching: vc, as: .image(on: .iPhoneX(.landscape)))
     }
 }
