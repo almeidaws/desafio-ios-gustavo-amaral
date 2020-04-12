@@ -13,6 +13,7 @@
 		EC2367372442A78E00FD1EF3 /* MockedImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2366FA2442A26700FD1EF3 /* MockedImageLoader.swift */; };
 		EC23673A2442ABF200FD1EF3 /* characters.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC2366F62442A26700FD1EF3 /* characters.txt */; };
 		EC2367432442BCEE00FD1EF3 /* thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC2367422442BCED00FD1EF3 /* thumbnail.jpg */; };
+		EC2367472442D64800FD1EF3 /* IPadMiniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */; };
 		EC4EDE242440C6B400BCF29F /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4EDE222440C52900BCF29F /* Networking.framework */; };
 		EC4EDE252440C6B400BCF29F /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC4EDE222440C52900BCF29F /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC4EDE2C2440D2A400BCF29F /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE2B2440D2A400BCF29F /* Thumbnail.swift */; };
@@ -74,6 +75,7 @@
 		EC2366F92442A26700FD1EF3 /* MockedCharactersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedCharactersViewModel.swift; sourceTree = "<group>"; };
 		EC2366FA2442A26700FD1EF3 /* MockedImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedImageLoader.swift; sourceTree = "<group>"; };
 		EC2367422442BCED00FD1EF3 /* thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail.jpg; sourceTree = "<group>"; };
+		EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadMiniTests.swift; sourceTree = "<group>"; };
 		EC4EDE222440C52900BCF29F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4EDE2B2440D2A400BCF29F /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		EC4EDE2D2440E76C00BCF29F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 				EC2366FA2442A26700FD1EF3 /* MockedImageLoader.swift */,
 			);
 			name = Mocks;
+			sourceTree = "<group>";
+		};
+		EC2367482442D64E00FD1EF3 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				ECE4A6972442A11A00C30A7D /* Info.plist */,
+			);
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 		EC4EDE212440C52900BCF29F /* Frameworks */ = {
@@ -320,10 +330,11 @@
 		ECE4A6942442A11A00C30A7D /* MarvelHeroesTests */ = {
 			isa = PBXGroup;
 			children = (
+				EC2367482442D64E00FD1EF3 /* Metadata */,
 				EC2367452442D5D700FD1EF3 /* Mocks */,
 				EC2367442442D5C800FD1EF3 /* Response Examples */,
 				ECE4A6952442A11A00C30A7D /* IPhoneXUITests.swift */,
-				ECE4A6972442A11A00C30A7D /* Info.plist */,
+				EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */,
 			);
 			path = MarvelHeroesTests;
 			sourceTree = "<group>";
@@ -470,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2367472442D64800FD1EF3 /* IPadMiniTests.swift in Sources */,
 				EC2367372442A78E00FD1EF3 /* MockedImageLoader.swift in Sources */,
 				ECE4A6962442A11A00C30A7D /* IPhoneXUITests.swift in Sources */,
 				EC2367362442A78E00FD1EF3 /* MockedCharactersViewModel.swift in Sources */,

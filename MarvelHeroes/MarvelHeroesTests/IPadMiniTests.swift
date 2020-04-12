@@ -1,6 +1,6 @@
 //
-//  IPhoneXUITests.swift
-//  IPhoneXUITests
+//  IPadMiniTests.swift
+//  IPadMiniTests
 //
 //  Created by Gustavo Amaral on 11/04/20.
 //  Copyright © 2020 Gustavo Almeida Amaral. All rights reserved.
@@ -13,7 +13,7 @@ import SwiftUI
 
 fileprivate let thumbnail = UIImage(contentsOfFile: Bundle(identifier: "com.almeidaws.MarvelHeroesTests")!.path(forResource: "thumbnail", ofType: "jpg")!)!
 
-class IPhoneXUITests: XCTestCase {
+class IPadMiniTests: XCTestCase {
     
     override class func setUp() {
 //        record = true
@@ -36,7 +36,7 @@ class IPhoneXUITests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 1)
         
-        assertSnapshot(matching: vc, as: .image(on: .iPhoneX(.portrait)))
+        assertSnapshot(matching: vc, as: .image(on: .iPadMini(.portrait)))
     }
     
     func testLightModeLandscape() throws {
@@ -52,7 +52,7 @@ class IPhoneXUITests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 1)
 
-        assertSnapshot(matching: vc, as: .image(on: .iPhoneX(.landscape)))
+        assertSnapshot(matching: vc, as: .image(on: .iPadMini(.landscape)))
     }
 
     func testDarkModePortrait() throws {
@@ -69,7 +69,7 @@ class IPhoneXUITests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 1)
 
-        assertSnapshot(matching: vc, as: .image(on: .iPhoneX(.portrait)))
+        assertSnapshot(matching: vc, as: .image(on: .iPadMini(.portrait)))
     }
 
     func testDarkModeLandscape() throws {
@@ -86,6 +86,6 @@ class IPhoneXUITests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 1)
 
-        assertSnapshot(matching: vc, as: .image(on: .iPhoneX(.landscape)))
+        assertSnapshot(matching: vc, as: .image(on: .iPadMini(.landscape)))
     }
 }
