@@ -86,7 +86,7 @@
 		EC4EDE372440FA4700BCF29F /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
 		EC4EDE392440FA9A00BCF29F /* RetryMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryMessage.swift; sourceTree = "<group>"; };
 		EC68A41A2440959E008663EC /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
-		EC89D1B62440897B004B3FA2 /* Marvel Heroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Heroes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC89D1B62440897B004B3FA2 /* Marvel's Heroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel's Heroes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC89D1B92440897B004B3FA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC89D1BB2440897B004B3FA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EC89D1BD2440897B004B3FA2 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 		EC89D1B72440897B004B3FA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC89D1B62440897B004B3FA2 /* Marvel Heroes.app */,
+				EC89D1B62440897B004B3FA2 /* Marvel's Heroes.app */,
 				ECE4A6932442A11A00C30A7D /* MarvelHeroesTests.xctest */,
 			);
 			name = Products;
@@ -363,7 +363,7 @@
 			);
 			name = MarvelHeroes;
 			productName = MarvelHeroes;
-			productReference = EC89D1B62440897B004B3FA2 /* Marvel Heroes.app */;
+			productReference = EC89D1B62440897B004B3FA2 /* Marvel's Heroes.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ECE4A6922442A11A00C30A7D /* MarvelHeroesTests */ = {
@@ -647,7 +647,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.almeidaws.MarvelHeroes;
-				PRODUCT_NAME = "Marvel Heroes";
+				PRODUCT_NAME = "Marvel's Heroes";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -669,7 +669,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.almeidaws.MarvelHeroes;
-				PRODUCT_NAME = "Marvel Heroes";
+				PRODUCT_NAME = "Marvel's Heroes";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
