@@ -14,6 +14,7 @@
 		EC23673A2442ABF200FD1EF3 /* characters.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC2366F62442A26700FD1EF3 /* characters.txt */; };
 		EC2367432442BCEE00FD1EF3 /* thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC2367422442BCED00FD1EF3 /* thumbnail.jpg */; };
 		EC2367472442D64800FD1EF3 /* IPadMiniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */; };
+		EC23674A2442D6FC00FD1EF3 /* IPhoneSETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2367492442D6FC00FD1EF3 /* IPhoneSETests.swift */; };
 		EC4EDE242440C6B400BCF29F /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4EDE222440C52900BCF29F /* Networking.framework */; };
 		EC4EDE252440C6B400BCF29F /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC4EDE222440C52900BCF29F /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC4EDE2C2440D2A400BCF29F /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE2B2440D2A400BCF29F /* Thumbnail.swift */; };
@@ -76,6 +77,7 @@
 		EC2366FA2442A26700FD1EF3 /* MockedImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedImageLoader.swift; sourceTree = "<group>"; };
 		EC2367422442BCED00FD1EF3 /* thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail.jpg; sourceTree = "<group>"; };
 		EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadMiniTests.swift; sourceTree = "<group>"; };
+		EC2367492442D6FC00FD1EF3 /* IPhoneSETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPhoneSETests.swift; sourceTree = "<group>"; };
 		EC4EDE222440C52900BCF29F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4EDE2B2440D2A400BCF29F /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		EC4EDE2D2440E76C00BCF29F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				EC2367442442D5C800FD1EF3 /* Response Examples */,
 				ECE4A6952442A11A00C30A7D /* IPhoneXUITests.swift */,
 				EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */,
+				EC2367492442D6FC00FD1EF3 /* IPhoneSETests.swift */,
 			);
 			path = MarvelHeroesTests;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 			files = (
 				EC2367472442D64800FD1EF3 /* IPadMiniTests.swift in Sources */,
 				EC2367372442A78E00FD1EF3 /* MockedImageLoader.swift in Sources */,
+				EC23674A2442D6FC00FD1EF3 /* IPhoneSETests.swift in Sources */,
 				ECE4A6962442A11A00C30A7D /* IPhoneXUITests.swift in Sources */,
 				EC2367362442A78E00FD1EF3 /* MockedCharactersViewModel.swift in Sources */,
 			);
