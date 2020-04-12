@@ -15,10 +15,12 @@ struct CharactersView: View {
     // by subscribing to the character publisher
     @State private var viewModel: AnyCharactersViewModel
     @State private var characters: AsyncResult<[Character], NetworkError>
+    @State private var presentedCharacter: Character?
     
-    init(viewModel: AnyCharactersViewModel = .default) {
+    init(viewModel: AnyCharactersViewModel = .default, initialCharacter: Character? = nil) {
         self._viewModel = State(initialValue: viewModel)
         self._characters = State(initialValue: viewModel.characters.value)
+        self._presentedCharacter = State(initialValue: initialCharacter)
     }
     
     var body: some View {
@@ -26,8 +28,9 @@ struct CharactersView: View {
             Section {
                 characters.isFinished { characters in
                     List(characters) { character in
-                        CharacterRow(character: character)
+                        CharacterRow(character: character, presentedCharacter: self.$presentedCharacter)
                             .onAppear() { self.viewModel.characterDidAppear(character) }
+                            .onTapGesture { self.presentedCharacter = character }
                     }.listStyle(GroupedListStyle())
                 }
                 

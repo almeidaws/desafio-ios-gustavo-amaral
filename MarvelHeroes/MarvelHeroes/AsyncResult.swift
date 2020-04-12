@@ -14,6 +14,13 @@ enum AsyncResult<Resource, ResourceError>: AsyncOperation where ResourceError: E
     case loading
     case failed(ResourceError)
     
+    var resource: Resource? {
+        switch self {
+        case .finished(let resource): return resource
+        default: return nil
+        }
+    }
+    
     func isFinished<Content: View>(@ViewBuilder content: (Resource) -> Content) -> Content? {
         switch self {
         case .finished(let resource): return content(resource)

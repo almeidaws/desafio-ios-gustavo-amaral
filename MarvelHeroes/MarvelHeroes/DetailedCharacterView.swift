@@ -11,26 +11,30 @@ import SwiftUI
 struct DetailedCharacterView: View {
     
     let character: Character
-    @Environment(\.imageLoaderFactory) var imageLoaderFactory
+    @Environment(\.imageLoaderFactory) private var imageLoaderFactory
     
     var body: some View {
-        ContainerOrientation { orientation in
-            ScrollView {
-                VStack(alignment: .leading) {
-                    URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible), imageLoader: self.imageLoaderFactory())
-                        .frame(maxWidth: .infinity)
-                    Text(self.character.description)
-                        .font(.body)
-                        .lineLimit(3)
-                        .padding(.top)
-                        .multilineTextAlignment(.leading)
-                    MostExpensiveHQButton(character: self.character)
-                    
+        NavigationView {
+            ContainerOrientation { orientation in
+                GeometryReader { geometry in
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible), imageLoader: self.imageLoaderFactory())
+                            .frame(width: geometry.size.width)
+                            
+                            Text(self.character.description)
+                                .font(.body)
+                                .lineLimit(3)
+                                .padding(.top)
+                                .multilineTextAlignment(.leading)
+                            MostExpensiveHQButton(character: self.character)
+                            
+                            }//.frame(width: geometry.size.width, height: geometry.size.height)
+                    }
                 }.padding(.horizontal)
             }
         }
         .navigationBarTitle(character.name)
-        
     }
 }
 

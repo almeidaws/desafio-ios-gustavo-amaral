@@ -13,8 +13,6 @@
 		EC2367372442A78E00FD1EF3 /* MockedImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2366FA2442A26700FD1EF3 /* MockedImageLoader.swift */; };
 		EC23673A2442ABF200FD1EF3 /* characters.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC2366F62442A26700FD1EF3 /* characters.txt */; };
 		EC2367432442BCEE00FD1EF3 /* thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC2367422442BCED00FD1EF3 /* thumbnail.jpg */; };
-		EC2367472442D64800FD1EF3 /* IPadMiniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */; };
-		EC23674A2442D6FC00FD1EF3 /* IPhoneSETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2367492442D6FC00FD1EF3 /* IPhoneSETests.swift */; };
 		EC4EDE242440C6B400BCF29F /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4EDE222440C52900BCF29F /* Networking.framework */; };
 		EC4EDE252440C6B400BCF29F /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC4EDE222440C52900BCF29F /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC4EDE2C2440D2A400BCF29F /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE2B2440D2A400BCF29F /* Thumbnail.swift */; };
@@ -44,7 +42,10 @@
 		ECE4A62A244271C500C30A7D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A629244271C500C30A7D /* ImageLoader.swift */; };
 		ECE4A62C244271DB00C30A7D /* AnyImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A62B244271DB00C30A7D /* AnyImageLoader.swift */; };
 		ECE4A62E2442722C00C30A7D /* NetworkingImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A62D2442722C00C30A7D /* NetworkingImageLoader.swift */; };
-		ECE4A6962442A11A00C30A7D /* IPhoneXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A6952442A11A00C30A7D /* IPhoneXUITests.swift */; };
+		ECE4A6962442A11A00C30A7D /* CharactersViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A6952442A11A00C30A7D /* CharactersViewTests.swift */; };
+		ECEF0C832443300D0053CF51 /* landscape.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECEF0C812443300C0053CF51 /* landscape.jpg */; };
+		ECEF0C842443300D0053CF51 /* portrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECEF0C822443300D0053CF51 /* portrait.jpg */; };
+		ECEF0C86244330E10053CF51 /* DetailedCharacterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF0C85244330E10053CF51 /* DetailedCharacterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +77,6 @@
 		EC2366F92442A26700FD1EF3 /* MockedCharactersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedCharactersViewModel.swift; sourceTree = "<group>"; };
 		EC2366FA2442A26700FD1EF3 /* MockedImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedImageLoader.swift; sourceTree = "<group>"; };
 		EC2367422442BCED00FD1EF3 /* thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail.jpg; sourceTree = "<group>"; };
-		EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadMiniTests.swift; sourceTree = "<group>"; };
-		EC2367492442D6FC00FD1EF3 /* IPhoneSETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPhoneSETests.swift; sourceTree = "<group>"; };
 		EC4EDE222440C52900BCF29F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4EDE2B2440D2A400BCF29F /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		EC4EDE2D2440E76C00BCF29F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -111,8 +110,11 @@
 		ECE4A62D2442722C00C30A7D /* NetworkingImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingImageLoader.swift; sourceTree = "<group>"; };
 		ECE4A673244299C500C30A7D /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4A6932442A11A00C30A7D /* MarvelHeroesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelHeroesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECE4A6952442A11A00C30A7D /* IPhoneXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPhoneXUITests.swift; sourceTree = "<group>"; };
+		ECE4A6952442A11A00C30A7D /* CharactersViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewTests.swift; sourceTree = "<group>"; };
 		ECE4A6972442A11A00C30A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECEF0C812443300C0053CF51 /* landscape.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = landscape.jpg; sourceTree = "<group>"; };
+		ECEF0C822443300D0053CF51 /* portrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = portrait.jpg; sourceTree = "<group>"; };
+		ECEF0C85244330E10053CF51 /* DetailedCharacterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				EC2367422442BCED00FD1EF3 /* thumbnail.jpg */,
+				ECEF0C812443300C0053CF51 /* landscape.jpg */,
+				ECEF0C822443300D0053CF51 /* portrait.jpg */,
 				EC2366F62442A26700FD1EF3 /* characters.txt */,
 			);
 			name = "Response Examples";
@@ -335,9 +339,8 @@
 				EC2367482442D64E00FD1EF3 /* Metadata */,
 				EC2367452442D5D700FD1EF3 /* Mocks */,
 				EC2367442442D5C800FD1EF3 /* Response Examples */,
-				ECE4A6952442A11A00C30A7D /* IPhoneXUITests.swift */,
-				EC2367462442D64800FD1EF3 /* IPadMiniTests.swift */,
-				EC2367492442D6FC00FD1EF3 /* IPhoneSETests.swift */,
+				ECE4A6952442A11A00C30A7D /* CharactersViewTests.swift */,
+				ECEF0C85244330E10053CF51 /* DetailedCharacterTests.swift */,
 			);
 			path = MarvelHeroesTests;
 			sourceTree = "<group>";
@@ -441,7 +444,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECEF0C842443300D0053CF51 /* portrait.jpg in Resources */,
 				EC2366FB2442A26700FD1EF3 /* characters.txt in Resources */,
+				ECEF0C832443300D0053CF51 /* landscape.jpg in Resources */,
 				EC2367432442BCEE00FD1EF3 /* thumbnail.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,11 +489,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2367472442D64800FD1EF3 /* IPadMiniTests.swift in Sources */,
 				EC2367372442A78E00FD1EF3 /* MockedImageLoader.swift in Sources */,
-				EC23674A2442D6FC00FD1EF3 /* IPhoneSETests.swift in Sources */,
-				ECE4A6962442A11A00C30A7D /* IPhoneXUITests.swift in Sources */,
+				ECE4A6962442A11A00C30A7D /* CharactersViewTests.swift in Sources */,
 				EC2367362442A78E00FD1EF3 /* MockedCharactersViewModel.swift in Sources */,
+				ECEF0C86244330E10053CF51 /* DetailedCharacterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

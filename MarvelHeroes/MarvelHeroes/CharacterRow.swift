@@ -11,10 +11,12 @@ import SwiftUI
 
 struct CharacterRow: View {
     let character: Character
-    @Environment(\.imageLoaderFactory) var imageLoaderFactory
+    @Environment(\.imageLoaderFactory) private var imageLoaderFactory
+    var presentedCharacter: Binding<Character?>
     
     var body: some View {
-        NavigationLink(destination: DetailedCharacterView(character: character)) {
+        NavigationLink(destination: DetailedCharacterView(character: character), tag: character, selection: presentedCharacter) {
+//        NavigationLink(destination: DetailedCharacterView(character: character), isActive: isActive) {
             HStack {
                 URLImage(url: character.thumbnail.sized(.standardSmall), imageLoader: imageLoaderFactory())
                     .frame(width: 65, height: 45, alignment: .center)

@@ -12,7 +12,7 @@ struct MostExpensiveHQView: View {
     
     let character: Character
     @ObservedObject private var viewModel = MostExpensiveHQViewModel()
-    @Environment(\.imageLoaderFactory) var imageLoaderFactory
+    @Environment(\.imageLoaderFactory) private var imageLoaderFactory
     
     var body: some View {
         ContainerOrientation { orientation in
