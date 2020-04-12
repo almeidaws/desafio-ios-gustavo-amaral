@@ -13,72 +13,56 @@ import Combine
 struct URLImage: View {
     
     let url: URL
-    @ObservedObject private var imageLoader = ImageLoader()
+    @State private var imageLoader: AnyImageLoader
     @State private var isPresentingError = false
     @State private var isHidden = true
+    @State private var image: AsyncResult<UIImage, NetworkError>
+    
+    init(url: URL, imageLoader: AnyImageLoader) {
+        self.url = url
+        self._imageLoader = State(initialValue: imageLoader)
+        self._image = State(initialValue: imageLoader.image.value)
+    }
     
     var body: some View {
         Group {
-            imageLoader.isLoading {
-                ActivityIndicator(style: .medium)
+            image.isLoading {
+                AnyView(
+                    ActivityIndicator(style: .medium)
                     .opacity(isHidden ? 1 : 0)
                     .animation(.easeInOut)
+                )
             }
             
-            imageLoader.isFinished { image in
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(10)
-                    .opacity(isHidden ? 0 : 1)
-                    .onAppear { withAnimation { self.isHidden = false } }
-                    .onDisappear { withAnimation { self.isHidden = true } }
+            image.isFinished { image in
+                AnyView(
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(10)
+                        .opacity(isHidden ? 0 : 1)
+                        .onAppear { withAnimation { self.isHidden = false } }
+                        .onDisappear { withAnimation { self.isHidden = true } }
+                )
             }
             
-            imageLoader.isFailed { _ in
-                Image(systemName: "xmark.octagon")
-                    .opacity(isHidden ? 1 : 0)
-                    .animation(.easeInOut)
+            image.isFailed { _ in
+                AnyView(
+                    Image(systemName: "xmark.octagon")
+                        .opacity(isHidden ? 1 : 0)
+                        .animation(.easeInOut)
+                )
             }
 
         }
         .onAppear { self.imageLoader.loadImage(from: self.url) }
+        .onReceive(imageLoader.image) { self.image = $0 }
+        
+        
     }
 }
 
-fileprivate class ImageLoader: ObservableObject {
-    
-    @Published private var image: AsyncResult<UIImage, NetworkError> = .loading
-    private var cancellable: AnyCancellable?
-    
-    func loadImage(from url: URL) {
-        self.image = .loading
-        self.cancellable = getThumbnail(from: url)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure(let error):
-                    self.image = .failed(error)
-                    debugPrint(error.localizedDescription)
-                default: break
-                }
-            }, receiveValue: { response in
-                self.image = .finished(response)
-        })
-    }
-    
-    func cancelLoad() {
-        self.cancellable?.cancel()
-    }
-    
-    func isFinished<Content: View>(@ViewBuilder content: (UIImage) -> Content) -> Content? {
-        return image.isFinished(content: content)
-    }
-    
-    func isLoading<Content: View>(@ViewBuilder content: () -> Content) -> Content? {
-        return image.isLoading(content: content)
-    }
-    
-    func isFailed<Content: View>(@ViewBuilder content: (NetworkError) -> Content) -> Content? {
-        return image.isFailed(content: content)
-    }
-}
+
+
+
+

@@ -38,6 +38,16 @@
                ReferencedContainer = "container:../Networking/Networking.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ECE4A6922442A11A00C30A7D"
+               BuildableName = "MarvelHeroesTests.xctest"
+               BlueprintName = "MarvelHeroesTests"
+               ReferencedContainer = "container:MarvelHeroes.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -13,14 +13,16 @@ import Combine
 import SwiftUI
 
 class MockedCharactersViewModel: CharactersViewModel {
-    var characters = CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>(.loading)
-    
-    func loadCharacters() {
+    var characters = CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>(.finished({
         let testsBundle = Bundle(identifier: "com.almeidaws.MarvelHeroesTests")!
         let url = testsBundle.url(forResource: "characters", withExtension: "txt")!
         let data = try! Data(contentsOf: url)
         let decodedCharacters = try! JSONDecoder().decode(CommonBody<CharacterBody>.self, from: data)
-        characters.value = .finished(decodedCharacters.data.results.mapToCharacters())
+        return decodedCharacters.data.results.mapToCharacters()
+    }()))
+    
+    func loadCharacters() {
+        // DOES NOTHING
     }
     
     func characterDidAppear(_ character: Character) {
@@ -28,7 +30,7 @@ class MockedCharactersViewModel: CharactersViewModel {
     }
     
     func isLoading(content: () -> AnyView) -> AnyView? {
-        return characters.value.isLoading(content: content)
+        return nil
     }
     
     func isFinished(content: ([Character]) -> AnyView) -> AnyView? {
@@ -36,6 +38,6 @@ class MockedCharactersViewModel: CharactersViewModel {
     }
     
     func isFailed(content: (NetworkError) -> AnyView) -> AnyView? {
-        return characters.value.isFailed(content: content)
+        return nil
     }
 }

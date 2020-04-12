@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct MostExpensiveHQView: View {
+    
     let character: Character
     @ObservedObject private var viewModel = MostExpensiveHQViewModel()
+    @Environment(\.imageLoaderFactory) var imageLoaderFactory
     
     var body: some View {
         ContainerOrientation { orientation in
@@ -25,7 +27,7 @@ struct MostExpensiveHQView: View {
                     self.viewModel.hq.isFinished { comic in
                         comic.some { comic in
                             VStack(alignment: .leading) {
-                                URLImage(url: comic.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible))
+                                URLImage(url: comic.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible), imageLoader: self.imageLoaderFactory())
                                     .frame(maxWidth: .infinity)
                                 Text(comic.biggestPriceFormatted ?? "Unknown price")
                                     .font(.largeTitle)
@@ -60,6 +62,4 @@ struct MostExpensiveHQView_Previews: PreviewProvider {
     }
 }
 
-#if DEBUG
 let testCharacter2 = Character(id: 1011334, name: "Spider-Man", description: "A hero", thumbnail: .init(baseURL: URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16")!, extension: "jpg"))
-#endif

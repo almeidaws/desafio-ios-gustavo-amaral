@@ -11,12 +11,13 @@ import SwiftUI
 struct DetailedCharacterView: View {
     
     let character: Character
+    @Environment(\.imageLoaderFactory) var imageLoaderFactory
     
     var body: some View {
         ContainerOrientation { orientation in
             ScrollView {
                 VStack(alignment: .leading) {
-                    URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible))
+                    URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible), imageLoader: self.imageLoaderFactory())
                         .frame(maxWidth: .infinity)
                     Text(self.character.description)
                         .font(.body)
@@ -39,6 +40,4 @@ struct DetailedCharacterView_Previews: PreviewProvider {
     }
 }
 
-#if DEBUG
 fileprivate let testCharacter1 = Character(id: 1, name: "Spider-Man", description: "A hero", thumbnail: .init(baseURL: URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16")!, extension: "jpg"))
-#endif

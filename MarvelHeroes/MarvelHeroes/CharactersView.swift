@@ -11,11 +11,14 @@ import Networking
 
 struct CharactersView: View {
     
-    @ObservedObject private var viewModel: AnyCharactersViewModel
-    @State private var characters: AsyncResult<[Character], NetworkError> = .loading
+    // Make no sense to set AnyCharactersViewModel as ObservableObject, the observation is made
+    // by subscribing to the character publisher
+    @State private var viewModel: AnyCharactersViewModel
+    @State private var characters: AsyncResult<[Character], NetworkError>
     
     init(viewModel: AnyCharactersViewModel = .default) {
-        self.viewModel = viewModel
+        self._viewModel = State(initialValue: viewModel)
+        self._characters = State(initialValue: viewModel.characters.value)
     }
     
     var body: some View {

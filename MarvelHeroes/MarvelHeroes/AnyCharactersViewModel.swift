@@ -21,7 +21,7 @@ class AnyCharactersViewModel: ObservableObject, CharactersViewModel {
     private let _isLoading: (() -> AnyView) -> AnyView?
     
     var ab: AnyCancellable?
-    init<ViewModel: CharactersViewModel>(viewModel: ViewModel) where ViewModel.Resource == [Character], ViewModel.ResourceError == NetworkError {
+    init<ViewModel: CharactersViewModel>(viewModel: ViewModel) {
         self.characters = viewModel.characters
         self._loadCharacters = viewModel.loadCharacters
         self._characterDidAppear = viewModel.characterDidAppear

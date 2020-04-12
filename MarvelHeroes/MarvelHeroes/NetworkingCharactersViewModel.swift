@@ -15,6 +15,10 @@ class NetworkingCharactersViewModel: CharactersViewModel {
     var characters = CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>(.loading)
     private var lastFetchedPage = 0
     private var cancellable: AnyCancellable?
+    
+    init() {
+        print(512)
+    }
 
     func loadCharacters() {
         self.characters.value = .loading
