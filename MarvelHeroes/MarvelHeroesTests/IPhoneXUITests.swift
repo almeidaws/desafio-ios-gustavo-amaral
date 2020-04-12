@@ -37,7 +37,7 @@ class IPhoneXUITests: XCTestCase {
     
     func testLightModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image:#imageLiteral(resourceName: "thumbnail.jpg") ).erased() })
+            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
         

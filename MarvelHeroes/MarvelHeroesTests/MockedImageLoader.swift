@@ -14,7 +14,7 @@ import Networking
 
 class MockedImageLoader: ImageLoader {
     
-    var image: CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never>
+    let image: CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never>
     
     init(image: UIImage) {
         self.image = CurrentValueSubject(.finished(image))

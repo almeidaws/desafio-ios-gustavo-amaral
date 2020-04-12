@@ -13,7 +13,7 @@ import UIKit
 import SwiftUI
 
 protocol ImageLoader: AsyncOperation where Resource == UIImage, ResourceError == NetworkError {
-    var image: CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never> { get set }
+    var image: CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never> { get }
     func loadImage(from url: URL)
     func cancelLoad()
 }

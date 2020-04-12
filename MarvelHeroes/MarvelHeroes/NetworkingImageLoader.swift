@@ -14,7 +14,7 @@ import SwiftUI
 
 class NetworkingImageLoader: ImageLoader {
     
-    var image = CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never>(.loading)
+    let image = CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never>(.loading)
     private var cancellable: AnyCancellable?
     
     func loadImage(from url: URL) {

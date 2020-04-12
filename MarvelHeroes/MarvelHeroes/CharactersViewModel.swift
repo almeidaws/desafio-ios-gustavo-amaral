@@ -12,7 +12,7 @@ import SwiftUI
 import Combine
 
 protocol CharactersViewModel: AnyObject, AsyncOperation where Resource == [Character], ResourceError == NetworkError {
-    var characters: CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never> { get set }
+    var characters: CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never> { get }
     func loadCharacters()
     func characterDidAppear(_ character: Character)
 }

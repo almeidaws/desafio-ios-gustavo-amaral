@@ -13,7 +13,7 @@ import Combine
 import SwiftUI
 
 class MockedCharactersViewModel: CharactersViewModel {
-    var characters = CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>(.finished({
+    let characters = CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>(.finished({
         let testsBundle = Bundle(identifier: "com.almeidaws.MarvelHeroesTests")!
         let url = testsBundle.url(forResource: "characters", withExtension: "txt")!
         let data = try! Data(contentsOf: url)

@@ -14,7 +14,7 @@ import SwiftUI
 
 class AnyImageLoader: ObservableObject, ImageLoader {
     
-    var image: CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never>
+    let image: CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never>
     private let _loadImage: (URL) -> Void
     private let _cancelLoad: () -> Void
     

@@ -12,7 +12,7 @@ import Networking
 import Combine
 
 class AnyCharactersViewModel: ObservableObject, CharactersViewModel {
-    var characters: CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>
+    let characters: CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>
     
     private let _loadCharacters: () -> Void
     private let _characterDidAppear: (Character) -> Void
