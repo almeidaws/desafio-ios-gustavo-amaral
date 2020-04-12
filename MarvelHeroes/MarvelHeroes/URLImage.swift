@@ -17,6 +17,7 @@ struct URLImage: View {
     @State private var isPresentingError = false
     @State private var isHidden = true
     @State private var image: AsyncResult<UIImage, NetworkError>
+    @Environment(\.isURLImageAnimationEnabled) private var isAnimationEnabled
     
     init(url: URL, imageLoader: AnyImageLoader) {
         self.url = url
@@ -40,9 +41,9 @@ struct URLImage: View {
                         .resizable()
                         .scaledToFit()
                         .cornerRadius(10)
-                        .opacity(isHidden ? 0 : 1)
-                        .onAppear { withAnimation { self.isHidden = false } }
-                        .onDisappear { withAnimation { self.isHidden = true } }
+                        .opacity(isAnimationEnabled && isHidden ? 0 : 1)
+                        .onAppear { if self.isAnimationEnabled { withAnimation { self.isHidden = false } } }
+                        .onDisappear { if self.isAnimationEnabled { withAnimation { self.isHidden = true } } }
                 )
             }
             
@@ -62,7 +63,15 @@ struct URLImage: View {
     }
 }
 
+struct URLImageAnimationKey: EnvironmentKey {
+    static var defaultValue: Bool {
+        return true
+    }
+}
 
-
-
-
+extension EnvironmentValues {
+    var isURLImageAnimationEnabled: Bool {
+        get { self[URLImageAnimationKey] }
+        set { self[URLImageAnimationKey] = newValue }
+    }
+}

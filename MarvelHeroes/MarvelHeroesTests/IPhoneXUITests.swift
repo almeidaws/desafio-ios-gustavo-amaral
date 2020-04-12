@@ -15,14 +15,18 @@ fileprivate let thumbnail = UIImage(contentsOfFile: Bundle(identifier: "com.alme
 
 class IPhoneXUITests: XCTestCase {
     
+    override class func setUp() {
+//        record = true
+    }
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
-        
     }
     
     func testLightModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
             .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.isURLImageAnimationEnabled, false)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
         
@@ -38,6 +42,7 @@ class IPhoneXUITests: XCTestCase {
     func testLightModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
             .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+        .environment(\.isURLImageAnimationEnabled, false)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
         
@@ -53,6 +58,7 @@ class IPhoneXUITests: XCTestCase {
     func testDarkModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
             .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.isURLImageAnimationEnabled, false)
             .environment(\.colorScheme, .dark)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
@@ -69,6 +75,7 @@ class IPhoneXUITests: XCTestCase {
     func testDarkModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
             .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.isURLImageAnimationEnabled, false)
             .environment(\.colorScheme, .dark)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds

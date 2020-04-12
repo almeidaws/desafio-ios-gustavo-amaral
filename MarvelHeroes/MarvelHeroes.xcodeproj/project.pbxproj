@@ -131,6 +131,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC2367442442D5C800FD1EF3 /* Response Examples */ = {
+			isa = PBXGroup;
+			children = (
+				EC2367422442BCED00FD1EF3 /* thumbnail.jpg */,
+				EC2366F62442A26700FD1EF3 /* characters.txt */,
+			);
+			name = "Response Examples";
+			sourceTree = "<group>";
+		};
+		EC2367452442D5D700FD1EF3 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				EC2366F92442A26700FD1EF3 /* MockedCharactersViewModel.swift */,
+				EC2366FA2442A26700FD1EF3 /* MockedImageLoader.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
 		EC4EDE212440C52900BCF29F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,10 +320,8 @@
 		ECE4A6942442A11A00C30A7D /* MarvelHeroesTests */ = {
 			isa = PBXGroup;
 			children = (
-				EC2367422442BCED00FD1EF3 /* thumbnail.jpg */,
-				EC2366F62442A26700FD1EF3 /* characters.txt */,
-				EC2366F92442A26700FD1EF3 /* MockedCharactersViewModel.swift */,
-				EC2366FA2442A26700FD1EF3 /* MockedImageLoader.swift */,
+				EC2367452442D5D700FD1EF3 /* Mocks */,
+				EC2367442442D5C800FD1EF3 /* Response Examples */,
 				ECE4A6952442A11A00C30A7D /* IPhoneXUITests.swift */,
 				ECE4A6972442A11A00C30A7D /* Info.plist */,
 			);
