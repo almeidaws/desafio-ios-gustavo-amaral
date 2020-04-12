@@ -8,7 +8,7 @@
 
 import XCTest
 import SnapshotTesting
-@testable import Marvel_Heroes
+@testable import Marvel_s_Heroes
 import SwiftUI
 @testable import Networking
 

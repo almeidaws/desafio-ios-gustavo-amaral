@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import Marvel_Heroes
+@testable import Marvel_s_Heroes
 import Combine
 import SwiftUI
 import Networking

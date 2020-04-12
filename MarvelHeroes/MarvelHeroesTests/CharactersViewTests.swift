@@ -8,7 +8,7 @@
 
 import XCTest
 import SnapshotTesting
-@testable import Marvel_Heroes
+@testable import Marvel_s_Heroes
 import SwiftUI
 
 fileprivate let thumbnail = UIImage(contentsOfFile: Bundle(identifier: "com.almeidaws.MarvelHeroesTests")!.path(forResource: "thumbnail", ofType: "jpg")!)!
