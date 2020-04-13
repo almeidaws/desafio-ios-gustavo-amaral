@@ -18,7 +18,7 @@ struct DetailedCharacterView: View {
             GeometryReader { geometry in
                 ScrollView {
                     VStack {
-                        URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible), imageLoader: self.imageLoaderFactory())
+                        URLImage(imageLoader: self.imageLoaderFactory(self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible)))
                         
                         Text(self.character.description)
                             .font(.body)

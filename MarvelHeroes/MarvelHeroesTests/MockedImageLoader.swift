@@ -12,31 +12,36 @@ import Combine
 import SwiftUI
 import Networking
 
+class MockedImageLoaderSubscription: Subscription {
+    
+    private let image: AsyncResult<UIImage, NetworkError>
+    private let subscriber: AnySubscriber<AsyncResult<UIImage, NetworkError>, Never>
+    
+    init<S: Subscriber>(_ image: UIImage, _ subscriber: S) where S.Input == AsyncResult<UIImage, NetworkError>, S.Failure == Never {
+        self.image = .finished(image)
+        self.subscriber = AnySubscriber(subscriber)
+    }
+    
+    func request(_ demand: Subscribers.Demand) {
+        _ = subscriber.receive(image)
+        subscriber.receive(completion: .finished)
+    }
+    
+    func cancel() {
+        fatalError("Not implemented")
+    }
+}
+
 class MockedImageLoader: ImageLoader {
     
-    let image: CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never>
+    private let image: UIImage
     
     init(image: UIImage) {
-        self.image = CurrentValueSubject(.finished(image))
+        self.image = image
     }
     
-    func loadImage(from url: URL) {
-        // DOES NOTHING
-    }
-    
-    func cancelLoad() {
-        // DOES NOTHING
-    }
-    
-    func isFinished(content: (UIImage) -> AnyView) -> AnyView? {
-        return image.value.isFinished(content: content)
-    }
-    
-    func isLoading(content: () -> AnyView) -> AnyView? {
-        return nil
-    }
-    
-    func isFailed(content: (NetworkError) -> AnyView) -> AnyView? {
-        return nil
+    func receive<S: Subscriber>(subscriber: S) where S.Input == AsyncResult<UIImage, NetworkError>, S.Failure == Never {
+        let subscription = MockedImageLoaderSubscription(image, subscriber)
+        subscriber.receive(subscription: subscription)
     }
 }

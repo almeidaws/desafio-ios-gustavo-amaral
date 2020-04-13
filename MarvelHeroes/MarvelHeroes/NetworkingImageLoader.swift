@@ -12,39 +12,53 @@ import UIKit
 import Networking
 import SwiftUI
 
-class NetworkingImageLoader: ImageLoader {
+fileprivate class ImageLoaderSubscription: Subscription {
     
-    let image = CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never>(.loading)
+    private var subscriber: AnySubscriber<AsyncResult<UIImage, NetworkError>, Never>?
+    private let url: URL
     private var cancellable: AnyCancellable?
     
-    func loadImage(from url: URL) {
-        self.image.value = .loading
-        self.cancellable = getThumbnail(from: url)
-            .sink(receiveCompletion: { completion in
+    init<S: Subscriber>(_ url: URL, _ subscriber: S) where S.Input == AsyncResult<UIImage, NetworkError>, S.Failure == Never {
+        self.url = url
+        self.subscriber = AnySubscriber(subscriber)
+    }
+    
+    func request(_ demand: Subscribers.Demand) {
+        switch demand {
+        case .none: break
+        default:
+            guard let subscriber = self.subscriber else { return }
+            self.cancellable = getThumbnail(from: url).sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .failure(let error):
-                    self.image.value = .failed(error)
-                    debugPrint(error.localizedDescription)
-                default: break
+                    let nextDemand = subscriber.receive(.failed(error))
+                    assert(nextDemand == .none)
+                case .finished:
+                    subscriber.receive(completion: .finished)
                 }
-            }, receiveValue: { response in
-                self.image.value = .finished(response)
-        })
+            }) { (image) in
+                let nextDemand = subscriber.receive(.finished(image))
+                assert(nextDemand == .none)
+            }
+        }
     }
     
-    func cancelLoad() {
-        self.cancellable?.cancel()
+    func cancel() {
+        subscriber = nil
+    }
+}
+
+class NetworkingImageLoader: ImageLoader {
+    
+    private var subscriptions = [ImageLoaderSubscription]()
+    let url: URL
+    
+    init(_ url: URL) {
+        self.url = url
     }
     
-    func isFinished(@ViewBuilder content: (UIImage) -> AnyView) -> AnyView? {
-        return image.value.isFinished(content: content)
-    }
-    
-    func isLoading(@ViewBuilder content: () -> AnyView) -> AnyView? {
-        return image.value.isLoading(content: content)
-    }
-    
-    func isFailed(@ViewBuilder content: (NetworkError) -> AnyView) -> AnyView? {
-        return image.value.isFailed(content: content)
+    func receive<S: Subscriber>(subscriber: S) where S.Input == AsyncResult<UIImage, NetworkError>, S.Failure == Never {
+        let subscription = ImageLoaderSubscription(url, subscriber)
+        subscriber.receive(subscription: subscription)
     }
 }

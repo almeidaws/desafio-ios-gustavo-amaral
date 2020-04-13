@@ -12,22 +12,17 @@ import Combine
 
 struct URLImage: View {
     
-    let url: URL
-    let imageLoader: AnyImageLoader
-    @State private var isPresentingError = false
+    @ObservedObject private var imageLoader: ObservableImageLoader
     @State private var isHidden = true
-    @State private var image: AsyncResult<UIImage, NetworkError>
     @Environment(\.isURLImageAnimationEnabled) private var isAnimationEnabled
     
-    init(url: URL, imageLoader: AnyImageLoader) {
-        self.url = url
+    init(imageLoader: ObservableImageLoader){
         self.imageLoader = imageLoader
-        self._image = State(initialValue: imageLoader.image.value)
     }
     
     var body: some View {
         Group {
-            image.isLoading {
+            imageLoader.image.isLoading {
                 AnyView(
                     ActivityIndicator(style: .medium)
                     .opacity(isHidden ? 1 : 0)
@@ -35,7 +30,7 @@ struct URLImage: View {
                 )
             }
             
-            image.isFinished { image in
+            imageLoader.image.isFinished { image in
                 AnyView(
                     Image(uiImage: image)
                         .resizable()
@@ -47,19 +42,14 @@ struct URLImage: View {
                 )
             }
             
-            image.isFailed { _ in
+            imageLoader.image.isFailed { _ in
                 AnyView(
                     Image(systemName: "xmark.octagon")
                         .opacity(isHidden ? 1 : 0)
                         .animation(.easeInOut)
                 )
             }
-
         }
-        .onAppear { self.imageLoader.loadImage(from: self.url) }
-        .onReceive(imageLoader.image) { self.image = $0 }
-        
-        
     }
 }
 

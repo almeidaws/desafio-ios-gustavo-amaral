@@ -12,14 +12,11 @@ import Networking
 import UIKit
 import SwiftUI
 
-protocol ImageLoader: AsyncOperation where Resource == UIImage, ResourceError == NetworkError {
-    var image: CurrentValueSubject<AsyncResult<UIImage, NetworkError>, Never> { get }
-    func loadImage(from url: URL)
-    func cancelLoad()
-}
+protocol ImageLoader: Publisher where Output == AsyncResult<UIImage, NetworkError>, Failure == Never { }
+
 
 extension ImageLoader {
-    func erased() -> AnyImageLoader {
-        return AnyImageLoader(loader: self)
+    func erased() -> ObservableImageLoader {
+        return ObservableImageLoader(loader: self)
     }
 }

@@ -18,7 +18,8 @@ struct CharacterRow: View {
         NavigationLink(destination: DetailedCharacterView(character: character), tag: character, selection: presentedCharacter) {
 //        NavigationLink(destination: DetailedCharacterView(character: character), isActive: isActive) {
             HStack {
-                URLImage(url: character.thumbnail.sized(.standardSmall), imageLoader: imageLoaderFactory())
+                URLImage(imageLoader: imageLoaderFactory(character.thumbnail.sized(.standardSmall)))
+//                URLImage(url: character.thumbnail.sized(.standardSmall), imageLoader: imageLoaderFactory())
                     .frame(width: 65, height: 45, alignment: .center)
                     .padding(.trailing)
                 Text(character.name)

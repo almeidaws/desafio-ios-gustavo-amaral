@@ -21,7 +21,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPhoneXLightModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
@@ -37,7 +37,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPhoneXLightModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
@@ -53,7 +53,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPhoneXDarkModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
             .environment(\.colorScheme, .dark)
         let vc = UIHostingController(rootView: view)
@@ -70,7 +70,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPhoneXDarkModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
             .environment(\.colorScheme, .dark)
         let vc = UIHostingController(rootView: view)
@@ -87,7 +87,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPadMiniLightModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
@@ -103,7 +103,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPadMiniLightModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
@@ -119,7 +119,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPadMiniDarkModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
             .environment(\.colorScheme, .dark)
         let vc = UIHostingController(rootView: view)
@@ -136,7 +136,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPadMiniDarkModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
             .environment(\.colorScheme, .dark)
         let vc = UIHostingController(rootView: view)
@@ -153,7 +153,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPhoneSELightModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
@@ -169,7 +169,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPhoneSELightModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
         let vc = UIHostingController(rootView: view)
         vc.view.frame = UIScreen.main.bounds
@@ -185,7 +185,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPhoneSEDarkModePortrait() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
             .environment(\.colorScheme, .dark)
         let vc = UIHostingController(rootView: view)
@@ -202,7 +202,7 @@ class CharactersViewTests: XCTestCase {
     
     func testiPhoneSEDarkModeLandscape() throws {
         let view = CharactersView(viewModel: MockedCharactersViewModel().erased())
-            .environment(\.imageLoaderFactory, { MockedImageLoader(image: thumbnail).erased() })
+            .environment(\.imageLoaderFactory, { _ in MockedImageLoader(image: thumbnail).erased() })
             .environment(\.isURLImageAnimationEnabled, false)
             .environment(\.colorScheme, .dark)
         let vc = UIHostingController(rootView: view)
