@@ -70,6 +70,7 @@ Working on large projects require it to broken into smaller interconnected parts
 - **Networking**, created, as the name tells us, to abstract how networking is handled by the app. It exposes only the necessary methods that return instances that conforms to [Publisher](https://developer.apple.com/documentation/combine/publisher), making it easy to be connected with SwiftUI.
 
 **The project's structure follows [Separation of Concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) design principle**
+
 ![Project's file structure](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/File%20Structure.png)
 
 ## Principles of Scrum
