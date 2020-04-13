@@ -44,9 +44,11 @@ Currently, there are 32 tests on the app:
 - 8 testing the Networking module used to abstract how data is retrieved from the Marvel's API.
 
 **Snapshots images generated on UI Tests**
+
 ![Snapshots form UI tests](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Snapshots.png)
 
 **All tests were executed successfully**
+
 ![Successfully executed tests](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Successful%20tests.png)
 
 
