@@ -14,24 +14,21 @@ struct DetailedCharacterView: View {
     @Environment(\.imageLoaderFactory) private var imageLoaderFactory
     
     var body: some View {
-        NavigationView {
-            ContainerOrientation { orientation in
-                GeometryReader { geometry in
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible), imageLoader: self.imageLoaderFactory())
-                            .frame(width: geometry.size.width)
-                            
-                            Text(self.character.description)
-                                .font(.body)
-                                .lineLimit(3)
-                                .padding(.top)
-                                .multilineTextAlignment(.leading)
-                            MostExpensiveHQButton(character: self.character)
-                            
-                            }//.frame(width: geometry.size.width, height: geometry.size.height)
-                    }
-                }.padding(.horizontal)
+        ContainerOrientation { orientation in
+            GeometryReader { geometry in
+                ScrollView {
+                    VStack {
+                        URLImage(url: self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible), imageLoader: self.imageLoaderFactory())
+                        
+                        Text(self.character.description)
+                            .font(.body)
+                            .lineLimit(3)
+                            .padding(.top)
+                            .multilineTextAlignment(.leading)
+                        MostExpensiveHQButton(character: self.character)
+                        
+                    }.padding(.horizontal)
+                }
             }
         }
         .navigationBarTitle(character.name)

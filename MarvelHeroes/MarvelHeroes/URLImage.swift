@@ -13,7 +13,7 @@ import Combine
 struct URLImage: View {
     
     let url: URL
-    @State private var imageLoader: AnyImageLoader
+    let imageLoader: AnyImageLoader
     @State private var isPresentingError = false
     @State private var isHidden = true
     @State private var image: AsyncResult<UIImage, NetworkError>
@@ -21,7 +21,7 @@ struct URLImage: View {
     
     init(url: URL, imageLoader: AnyImageLoader) {
         self.url = url
-        self._imageLoader = State(initialValue: imageLoader)
+        self.imageLoader = imageLoader
         self._image = State(initialValue: imageLoader.image.value)
     }
     
