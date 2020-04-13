@@ -9,7 +9,7 @@ It was created with the latest technologies like [SwiftUI](https://developer.app
 
 ## App's architecture
 
-[MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), [MVVM](https://www.objc.io/issues/13-architecture/mvvm/), [Viper](https://www.objc.io/issues/13-architecture/viper/) and the its variations are all architectures created with UIKit in mind. Just [replicating those architectures for SwiftUI-based apps is not a smart decision](https://nalexn.github.io/clean-architecture-swiftui/).
+[MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controll.pnger), [MVVM](https://www.objc.io/issues/13-architecture/mvvm/), [Viper](https://www.objc.io/issues/13-architecture/viper/) and the its variations are all architectures created with UIKit in mind. Just [replicating those architectures for SwiftUI-based apps is not a smart decision](https://nalexn.github.io/clean-architecture-swiftui/).
 
 Views from SwiftUI are like functions that return a screen based the data given to it. It is functional. Considering those facts, there is a new way to implement [MVVM](https://nalexn.github.io/clean-architecture-swiftui/) and another new one called [Composable](https://www.pointfree.co/collections/composable-architecture).
 
@@ -25,8 +25,8 @@ For this app, MVVM was choosed for some reasons:
 
 One of the huge benefits of using SwiftUI is that the same UI code can the used for three different platforms. And because of that, the app works for *iPhone, iPad and MacOS*, on *different screens* sizes and on both *landscape and portrait* mode. Furthermore, it also has both *light and dark mode* version*. 
 
-![Presentation iPhones](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Presentation%20iPhones.jpg)
-![Presentation iPads](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Presentation%20iPads.jpg)
+![Presentation iPhones](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Presentation%20iPhones.png)
+![Presentation iPads](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Presentation%20iPads.png)
 
 ## Continuous Integration
 
@@ -44,10 +44,10 @@ Currently, there are 32 tests on the app:
 - 8 testing the Networking module used to abstract how data is retrieved from the Marvel's API.
 
 **Snapshots images generated on UI Tests**
-![Snapshots form UI tests](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Snapshots.jpg)
+![Snapshots form UI tests](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Snapshots.png)
 
 **All tests were executed successfully**
-![Successfully executed tests](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Successful%20tests.jpg)
+![Successfully executed tests](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Successful%20tests.png)
 
 
 
@@ -68,7 +68,7 @@ Working on large projects require it to broken into smaller interconnected parts
 - **Networking**, created, as the name tells us, to abstract how networking is handled by the app. It exposes only the necessary methods that return instances that conforms to [Publisher](https://developer.apple.com/documentation/combine/publisher), making it easy to be connected with SwiftUI.
 
 **The project's structure follows [Separation of Concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) design principle**
-![Project's file structure](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/File%20Structure.jpg)
+![Project's file structure](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/File%20Structure.png)
 
 ## Principles of Scrum
 
@@ -77,7 +77,7 @@ The project was created by just one person in 3 days, but that is not an argumen
 A backlog was created to track all the requirements and polishments that could be made, even that most worthless ones. It was important to view the big picture when finishing some feature and starting others.
 
 **This board is public. It is [available on Trello](https://trello.com/b/SddlKA6b/marvels-heroes)**
-![Project's file structure](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Trello.jpg)
+![Project's file structure](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Trello.png)
 
 ## Protocol-oriented Value-oriented programming
 
@@ -87,7 +87,7 @@ Apple has released Swift in 2014, and the language has evolved introducing some 
 The good news is that Protocol-oriented and Value-oriented paradigms fits perfectly with SwiftUI and Combine, so it is much more easy to created high quality code decreasing the number of errors and increasing the maintainability.
 
 **Example of the advanced technique [Type Erasure](https://medium.com/@chris_dus/type-erasure-in-swift-84480c807534) used to implement Dependency Injection to test views.**
-![Example of Type Erasing](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Type%20Erasure.jpg)
+![Example of Type Erasing](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Type%20Erasure.png)
 
 
 ## Git Flow and Versioning with Git
