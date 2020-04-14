@@ -77,7 +77,7 @@ Working on large projects require it to broken into smaller interconnected parts
 
 The project was created by just one person in 4 days, but that is not an argument to completely avoid using [Scrum](https://www.scrum.org/).
 
-A backlog was created to track all the requirements and polishments that could be made, even that most worthless ones. It was important to view the big picture when finishing some feature and starting others.
+A backlog was created to track all the requirements and polishments that could be made, even those most worthless ones. It was important to view the big picture when finishing some feature and starting the others.
 
 **This board is public. It is [available on Trello](https://trello.com/b/SddlKA6b/marvels-heroes)**
 ![Project's file structure](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Trello.png)
@@ -92,6 +92,7 @@ The good news is that Protocol-oriented and Value-oriented paradigms fits perfec
 **Example of the advanced technique [Type Erasure](https://medium.com/@chris_dus/type-erasure-in-swift-84480c807534) used to implement Dependency Injection to test views.**
 ![Example of Type Erasing](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Type%20Erasure.png)
 
+And because of Value-oriented Programming, model entities are value-type instead of reference-type. The benefit is the ability to void sharing state owned by one entity between other entities. It's like [Defensive Copying](http://www.javapractices.com/topic/TopicAction.do?Id=15) implemented in language level.
 
 ## Git Flow and Versioning with Git
 
