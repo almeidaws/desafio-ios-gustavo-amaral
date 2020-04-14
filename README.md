@@ -75,7 +75,7 @@ Working on large projects require it to broken into smaller interconnected parts
 
 ## Principles of Scrum
 
-The project was created by just one person in 3 days, but that is not an argument to completely avoid using [Scrum](https://www.scrum.org/).
+The project was created by just one person in 4 days, but that is not an argument to completely avoid using [Scrum](https://www.scrum.org/).
 
 A backlog was created to track all the requirements and polishments that could be made, even that most worthless ones. It was important to view the big picture when finishing some feature and starting others.
 
@@ -95,7 +95,7 @@ The good news is that Protocol-oriented and Value-oriented paradigms fits perfec
 
 ## Git Flow and Versioning with Git
 
-It is import to keep unstable code away from the client. To do so, some branches like `screens`, `networking` and `uitests` were created in those 3 days. Actually, the `master` branch was almost the last one to be created. On a large team it would be needed to create branches of branches of branches. But doing that for this project would be an unnecessary overkill.
+It is import to keep unstable code away from the client. To do so, some branches like `screens`, `networking` and `uitests` were created in those 4 days. Actually, the `master` branch was almost the last one to be created. On a large team it would be needed to create branches of branches of branches. But doing that for this project would be an unnecessary overkill.
 
 ## Project Configuration
 
@@ -110,7 +110,7 @@ Furthermore, to make requests it is necessary to add app's bundle identifier as 
 
 ## My personal experience
 
-Create this project in just 3 days was a big challenge, but it was worthy. I used [CBL](https://www.challengebasedlearning.org/) to work (what is almost the same thing as study in IT, XD ) on this project.
+Create this project in just 4 days was a big challenge, but it was worthy. I used [CBL](https://www.challengebasedlearning.org/) to work (what is almost the same thing as study in IT, XD ) on this project.
 
 I had just superficial knowledge about SwiftUI and even less about Combine before starting to code. So the challenge was to apply those two technologies while learning them, and taking care to create a high quality code and follow the best patterns.
 
