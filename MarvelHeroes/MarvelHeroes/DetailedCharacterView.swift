@@ -17,16 +17,16 @@ struct DetailedCharacterView: View {
         ContainerOrientation { orientation in
             ScrollView {
                 VStack {
-                        URLImage(imageLoader: self.imageLoaderFactory(self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible)))
-                        
-                        Text(self.character.description)
-                            .font(.body)
-                            .lineLimit(3)
-                            .padding(.top)
-                            .multilineTextAlignment(.leading)
-                        MostExpensiveHQButton(character: self.character)
-                    }
-                }.padding(.horizontal)
+                    URLImage(imageLoader: self.imageLoaderFactory(self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible)))
+                    
+                    Text(self.character.description)
+                        .font(.body)
+                        .lineLimit(3)
+                        .padding(.top)
+                        .multilineTextAlignment(.leading)
+                    MostExpensiveHQButton(character: self.character)
+                }
+            }.padding(.horizontal)
         }
         .navigationBarTitle(character.name)
     }
