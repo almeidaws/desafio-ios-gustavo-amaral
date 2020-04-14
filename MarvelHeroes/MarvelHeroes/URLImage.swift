@@ -23,31 +23,25 @@ struct URLImage: View {
     var body: some View {
         Group {
             imageLoader.image.whenLoading {
-                AnyView(
-                    ActivityIndicator(style: .medium)
+                ActivityIndicator(style: .medium)
                     .opacity(isHidden ? 1 : 0)
                     .animation(.easeInOut)
-                )
             }
             
             imageLoader.image.whenFinished { image in
-                AnyView(
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .cornerRadius(10)
-                        .opacity(isAnimationEnabled && isHidden ? 0 : 1)
-                        .onAppear { if self.isAnimationEnabled { withAnimation { self.isHidden = false } } }
-                        .onDisappear { if self.isAnimationEnabled { withAnimation { self.isHidden = true } } }
-                )
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .cornerRadius(10)
+                    .opacity(isAnimationEnabled && isHidden ? 0 : 1)
+                    .onAppear { if self.isAnimationEnabled { withAnimation { self.isHidden = false } } }
+                    .onDisappear { if self.isAnimationEnabled { withAnimation { self.isHidden = true } } }
             }
             
             imageLoader.image.whenFailed { _ in
-                AnyView(
-                    Image(systemName: "xmark.octagon")
-                        .opacity(isHidden ? 1 : 0)
-                        .animation(.easeInOut)
-                )
+                Image(systemName: "xmark.octagon")
+                    .opacity(isHidden ? 1 : 0)
+                    .animation(.easeInOut)
             }
         }
     }
