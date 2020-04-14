@@ -34,7 +34,7 @@ struct URLImage: View {
                 AnyView(
                     Image(uiImage: image)
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                         .cornerRadius(10)
                         .opacity(isAnimationEnabled && isHidden ? 0 : 1)
                         .onAppear { if self.isAnimationEnabled { withAnimation { self.isHidden = false } } }

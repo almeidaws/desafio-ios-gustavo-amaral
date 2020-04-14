@@ -12,32 +12,42 @@ import Foundation
 import Combine
 import SwiftUI
 
-class MockedCharactersViewModel: CharactersViewModel {
-    let characters = CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>(.finished({
+fileprivate class CharactersSubscription: Subscription {
+    
+    private let subscriber: AnySubscriber<AsyncResult<[Character], NetworkError>, Never>
+    private let characters: AsyncResult<[Character], NetworkError> = .finished({
         let testsBundle = Bundle(identifier: "com.almeidaws.MarvelHeroesTests")!
         let url = testsBundle.url(forResource: "characters", withExtension: "txt")!
         let data = try! Data(contentsOf: url)
         let decodedCharacters = try! JSONDecoder().decode(CommonBody<CharacterBody>.self, from: data)
         return decodedCharacters.data.results.mapToCharacters()
-    }()))
+    }())
     
-    func loadCharacters() {
-        // DOES NOTHING
+    init<S: Subscriber>(_ subscriber: S) where S.Input == AsyncResult<[Character], NetworkError>, S.Failure == Never {
+        self.subscriber = AnySubscriber(subscriber)
     }
     
-    func characterDidAppear(_ character: Character) {
-        // DOES NOTHING
+    func request(_ demand: Subscribers.Demand) {
+        switch demand {
+        case .unlimited:
+            _ = subscriber.receive(characters)
+            subscriber.receive(completion: .finished)
+        default:
+            fatalError("Not implemented.")
+        }
     }
     
-    func isLoading(content: () -> AnyView) -> AnyView? {
-        return nil
+    func cancel() {
+        fatalError("Not implemented.")
     }
+}
+
+class MockedCharactersLoader: Publisher {
+    typealias Output = AsyncResult<[Character], NetworkError>
+    typealias Failure = Never
     
-    func isFinished(content: ([Character]) -> AnyView) -> AnyView? {
-        return characters.value.isFinished(content: content)
-    }
-    
-    func isFailed(content: (NetworkError) -> AnyView) -> AnyView? {
-        return nil
+    func receive<S: Subscriber>(subscriber: S) where S.Input == AsyncResult<[Character], NetworkError>, S.Failure == Never {
+        let subscription = CharactersSubscription(subscriber)
+        subscriber.receive(subscription: subscription)
     }
 }

@@ -50,7 +50,6 @@ fileprivate class ImageLoaderSubscription: Subscription {
 
 class NetworkingImageLoader: ImageLoader {
     
-    private var subscriptions = [ImageLoaderSubscription]()
     let url: URL
     
     init(_ url: URL) {

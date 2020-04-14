@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC89D1B52440897B004B3FA2"
-               BuildableName = "Marvel Heroes.app"
+               BuildableName = "Marvel&apos;s Heroes.app"
                BlueprintName = "MarvelHeroes"
                ReferencedContainer = "container:MarvelHeroes.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC89D1B52440897B004B3FA2"
-            BuildableName = "Marvel Heroes.app"
+            BuildableName = "Marvel&apos;s Heroes.app"
             BlueprintName = "MarvelHeroes"
             ReferencedContainer = "container:MarvelHeroes.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC89D1B52440897B004B3FA2"
-            BuildableName = "Marvel Heroes.app"
+            BuildableName = "Marvel&apos;s Heroes.app"
             BlueprintName = "MarvelHeroes"
             ReferencedContainer = "container:MarvelHeroes.xcodeproj">
          </BuildableReference>

@@ -11,57 +11,47 @@ import Networking
 import Combine
 import SwiftUI
 
-class NetworkingCharactersViewModel: CharactersViewModel {
-    let characters = CurrentValueSubject<AsyncResult<[Character], NetworkError>, Never>(.loading)
-    private var lastFetchedPage = 0
+fileprivate class NetworkingSubscription: Subscription {
+    
+    private var subscriber: AnySubscriber<AsyncResult<[Character], NetworkError>, Never>?
     private var cancellable: AnyCancellable?
- 
-    func loadCharacters() {
-        self.characters.value = .loading
-        self.cancellable = getCharacters(limit: 20, offset: 0)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure(let error):
-                    self.characters.value = .failed(error)
-                default: break
-                }
-            }, receiveValue: { characters in
-                self.characters.value = .finished(characters.mapToCharacters())
-            })
+    private var lastFetchedPage = 0
+    private var currentCharacters = [Character]()
+    
+    init<S: Subscriber>(_ subscriber: S) where S.Input == AsyncResult<[Character], NetworkError>, S.Failure == Never {
+        self.subscriber = AnySubscriber(subscriber)
     }
     
-    func characterDidAppear(_ character: Character) {
-        switch characters.value {
-        case .finished(let loadedCharacters):
-            let index = loadedCharacters.firstIndex { $0 == character } ?? 0
-            if index >= loadedCharacters.count - 10 {
-                lastFetchedPage += 1
-                self.cancellable = getCharacters(limit: 20, offset: lastFetchedPage)
-                    .sink(receiveCompletion: { completion in
-                        switch completion {
-                        case .failure(let error):
-                            self.characters.value = .failed(error)
-                        default: break
-                        }
-                    }, receiveValue: { characters in
-                        var withNewItems = loadedCharacters
-                        withNewItems.append(contentsOf: characters.mapToCharacters())
-                        self.characters.value = .finished(withNewItems)
-                    })
+    func request(_ demand: Subscribers.Demand) {
+        guard let subscriber = self.subscriber else { return }
+        lastFetchedPage += 1
+        self.cancellable = getCharacters(limit: 20, offset: lastFetchedPage - 1)
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .failure(let error):
+                let nextDemand = subscriber.receive(.failed(error))
+                assert(nextDemand == .none)
+            case .finished:
+                break
             }
-        default: break
-        }
+        }, receiveValue: { characters in
+            let nextDemand = subscriber.receive(.finished(characters.mapToCharacters()))
+            assert(nextDemand == .none)
+        })
     }
     
-    func isLoading(content: () -> AnyView) -> AnyView? {
-        return characters.value.isLoading(content: content)
+    func cancel() {
+        subscriber = nil
     }
+}
+
+class NetworkingCharactersViewModel: Publisher {
     
-    func isFinished(content: ([Character]) -> AnyView) -> AnyView? {
-        return characters.value.isFinished(content: content)
-    }
-    
-    func isFailed(content: (NetworkError) -> AnyView) -> AnyView? {
-        return characters.value.isFailed(content: content)
+    typealias Output = AsyncResult<[Character], NetworkError>
+    typealias Failure = Never
+
+    func receive<S: Subscriber>(subscriber: S) where S.Input == AsyncResult<[Character], NetworkError>, S.Failure == Never {
+        let subscription = NetworkingSubscription(subscriber)
+        subscriber.receive(subscription: subscription)
     }
 }

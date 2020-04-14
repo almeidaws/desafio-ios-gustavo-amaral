@@ -11,22 +11,18 @@ import Networking
 
 struct CharactersView: View {
     
-    // Make no sense to set AnyCharactersViewModel as ObservableObject, the observation is made
-    // by subscribing to the character publisher
-    @State private var viewModel: AnyCharactersViewModel
-    @State private var characters: AsyncResult<[Character], NetworkError>
+    @ObservedObject private var viewModel: CharactersViewModel
     @State private var presentedCharacter: Character?
     
-    init(viewModel: AnyCharactersViewModel = .default, initialCharacter: Character? = nil) {
-        self._viewModel = State(initialValue: viewModel)
-        self._characters = State(initialValue: viewModel.characters.value)
+    init(viewModel: CharactersViewModel = .default, initialCharacter: Character? = nil) {
+        self.viewModel = viewModel
         self._presentedCharacter = State(initialValue: initialCharacter)
     }
     
     var body: some View {
         NavigationView {
             Section {
-                characters.isFinished { characters in
+                viewModel.characters.isFinished { characters in
                     List(characters) { character in
                         CharacterRow(character: character, presentedCharacter: self.$presentedCharacter)
                             .onAppear() { self.viewModel.characterDidAppear(character) }
@@ -34,20 +30,18 @@ struct CharactersView: View {
                     }.listStyle(GroupedListStyle())
                 }
                 
-                characters.isLoading {
+                viewModel.characters.isLoading {
                     ActivityIndicator(style: .large)
                 }
                 
-                characters.isFailed { networkError in
+                viewModel.characters.isFailed { networkError in
                     RetryMessage(title: "Oops…", message: networkError.localizedDescription) {
-                        self.viewModel.loadCharacters()
+                        self.viewModel.retry()
                     }
                 }
                 
             }.navigationBarTitle(Text("Marvel's Characters"))
         }
-        .onAppear { self.viewModel.loadCharacters() }
-        .onReceive(viewModel.characters) { self.characters = $0 }
     }
 }
 

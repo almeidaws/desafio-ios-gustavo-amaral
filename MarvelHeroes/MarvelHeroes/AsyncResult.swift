@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-enum AsyncResult<Resource, ResourceError>: AsyncOperation where ResourceError: Error {
+enum AsyncResult<Resource, ResourceError> where ResourceError: Error {
     case finished(Resource)
     case loading
     case failed(ResourceError)

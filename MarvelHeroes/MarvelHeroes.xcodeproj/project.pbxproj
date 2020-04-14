@@ -19,7 +19,6 @@
 		EC4EDE2E2440E76C00BCF29F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE2D2440E76C00BCF29F /* ActivityIndicator.swift */; };
 		EC4EDE302440E90F00BCF29F /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE2F2440E90F00BCF29F /* CharactersViewModel.swift */; };
 		EC4EDE332440E9A200BCF29F /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE322440E9A200BCF29F /* AsyncResult.swift */; };
-		EC4EDE352440E9E200BCF29F /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE342440E9E200BCF29F /* AsyncOperation.swift */; };
 		EC4EDE382440FA4700BCF29F /* CharacterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE372440FA4700BCF29F /* CharacterRow.swift */; };
 		EC4EDE3A2440FA9A00BCF29F /* RetryMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EDE392440FA9A00BCF29F /* RetryMessage.swift */; };
 		EC68A41B2440959E008663EC /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68A41A2440959E008663EC /* URLImage.swift */; };
@@ -38,7 +37,6 @@
 		ECB0461F24411C8E0088F96B /* MostExpensiveHQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB0461E24411C8E0088F96B /* MostExpensiveHQViewModel.swift */; };
 		ECB04621244130FF0088F96B /* Optional+Declarative.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB04620244130FF0088F96B /* Optional+Declarative.swift */; };
 		ECE4A622244257B400C30A7D /* NetworkingCharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A621244257B300C30A7D /* NetworkingCharactersViewModel.swift */; };
-		ECE4A62424425D6B00C30A7D /* AnyCharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A62324425D6B00C30A7D /* AnyCharactersViewModel.swift */; };
 		ECE4A62A244271C500C30A7D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A629244271C500C30A7D /* ImageLoader.swift */; };
 		ECE4A62C244271DB00C30A7D /* ObservableImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A62B244271DB00C30A7D /* ObservableImageLoader.swift */; };
 		ECE4A62E2442722C00C30A7D /* NetworkingImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4A62D2442722C00C30A7D /* NetworkingImageLoader.swift */; };
@@ -82,7 +80,6 @@
 		EC4EDE2D2440E76C00BCF29F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		EC4EDE2F2440E90F00BCF29F /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		EC4EDE322440E9A200BCF29F /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
-		EC4EDE342440E9E200BCF29F /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		EC4EDE372440FA4700BCF29F /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
 		EC4EDE392440FA9A00BCF29F /* RetryMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryMessage.swift; sourceTree = "<group>"; };
 		EC68A41A2440959E008663EC /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
@@ -104,7 +101,6 @@
 		ECB04620244130FF0088F96B /* Optional+Declarative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Declarative.swift"; sourceTree = "<group>"; };
 		ECB04623244219EA0088F96B /* MarvelHeroes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarvelHeroes.entitlements; sourceTree = "<group>"; };
 		ECE4A621244257B300C30A7D /* NetworkingCharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingCharactersViewModel.swift; sourceTree = "<group>"; };
-		ECE4A62324425D6B00C30A7D /* AnyCharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCharactersViewModel.swift; sourceTree = "<group>"; };
 		ECE4A629244271C500C30A7D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		ECE4A62B244271DB00C30A7D /* ObservableImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableImageLoader.swift; sourceTree = "<group>"; };
 		ECE4A62D2442722C00C30A7D /* NetworkingImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingImageLoader.swift; sourceTree = "<group>"; };
@@ -174,15 +170,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EC4EDE362440E9EC00BCF29F /* Async */ = {
-			isa = PBXGroup;
-			children = (
-				EC4EDE322440E9A200BCF29F /* AsyncResult.swift */,
-				EC4EDE342440E9E200BCF29F /* AsyncOperation.swift */,
-			);
-			name = Async;
-			sourceTree = "<group>";
-		};
 		EC68A418244092B0008663EC /* CharactersView */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +185,7 @@
 			children = (
 				ECE4A6282442713100C30A7D /* URLImage */,
 				ECB04622244131060088F96B /* Extensions */,
-				EC4EDE362440E9EC00BCF29F /* Async */,
+				EC4EDE322440E9A200BCF29F /* AsyncResult.swift */,
 				EC4EDE2D2440E76C00BCF29F /* ActivityIndicator.swift */,
 				EC4EDE392440FA9A00BCF29F /* RetryMessage.swift */,
 				ECB0461724410E570088F96B /* ContainerOrientation.swift */,
@@ -317,7 +304,6 @@
 			children = (
 				EC4EDE2F2440E90F00BCF29F /* CharactersViewModel.swift */,
 				ECE4A621244257B300C30A7D /* NetworkingCharactersViewModel.swift */,
-				ECE4A62324425D6B00C30A7D /* AnyCharactersViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -458,11 +444,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE4A62424425D6B00C30A7D /* AnyCharactersViewModel.swift in Sources */,
 				EC4EDE302440E90F00BCF29F /* CharactersViewModel.swift in Sources */,
 				EC4EDE3A2440FA9A00BCF29F /* RetryMessage.swift in Sources */,
 				ECB04621244130FF0088F96B /* Optional+Declarative.swift in Sources */,
-				EC4EDE352440E9E200BCF29F /* AsyncOperation.swift in Sources */,
 				EC89D1BA2440897B004B3FA2 /* AppDelegate.swift in Sources */,
 				EC68A41B2440959E008663EC /* URLImage.swift in Sources */,
 				ECE4A622244257B400C30A7D /* NetworkingCharactersViewModel.swift in Sources */,
