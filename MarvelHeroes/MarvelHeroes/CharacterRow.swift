@@ -11,17 +11,18 @@ import SwiftUI
 
 struct CharacterRow: View {
     let character: Character
+    @Binding var presentedCharacter: Character?
+    @State private var isActive = false
     @Environment(\.imageLoaderFactory) private var imageLoaderFactory
-    var presentedCharacter: Binding<Character?>
     
     var body: some View {
-        NavigationLink(destination: DetailedCharacterView(character: character), tag: character, selection: presentedCharacter) {
+        NavigationLink(destination: DetailedCharacterView(character: character), isActive: self.$isActive) {
             HStack {
                 URLImage(imageLoader: imageLoaderFactory(character.thumbnail.sized(.standardSmall)))
                     .frame(width: 65, height: 45, alignment: .center)
                     .padding(.trailing)
                 Text(character.name)
-            }
-        }.isDetailLink(false)
+            }.onAppear { if self.character == self.presentedCharacter { self.isActive = true } }
+        }
     }
 }

@@ -15,9 +15,8 @@ struct DetailedCharacterView: View {
     
     var body: some View {
         ContainerOrientation { orientation in
-            GeometryReader { geometry in
-                ScrollView {
-                    VStack {
+            ScrollView {
+                VStack {
                         URLImage(imageLoader: self.imageLoaderFactory(self.character.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible)))
                         
                         Text(self.character.description)
@@ -26,10 +25,8 @@ struct DetailedCharacterView: View {
                             .padding(.top)
                             .multilineTextAlignment(.leading)
                         MostExpensiveHQButton(character: self.character)
-                        
-                    }.padding(.horizontal)
-                }
-            }
+                    }
+                }.padding(.horizontal)
         }
         .navigationBarTitle(character.name)
     }

@@ -12,7 +12,8 @@ import Networking
 struct CharactersView: View {
     
     @ObservedObject private var viewModel: CharactersViewModel
-    @State private var presentedCharacter: Character?
+    @State private var presentedCharacter: Character? = nil
+    @State private var initialCharacter: Character?
     
     init(viewModel: CharactersViewModel = .default, initialCharacter: Character? = nil) {
         self.viewModel = viewModel
@@ -26,7 +27,6 @@ struct CharactersView: View {
                     List(characters) { character in
                         CharacterRow(character: character, presentedCharacter: self.$presentedCharacter)
                             .onAppear() { self.viewModel.characterDidAppear(character) }
-                            .onTapGesture { self.presentedCharacter = character }
                     }.listStyle(GroupedListStyle())
                 }
                 
