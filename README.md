@@ -5,7 +5,7 @@
 
 *Marvel's Heroes* is an iOS, iPad and MacOS application that consumes data from [Marvel's API](https://developer.marvel.com/) and presents the characters, allowing the user view its details and the most expensive comic in which that character appears.
 
-It was created with the latest technologies like [SwiftUI](https://developer.apple.com/xcode/swiftui/) and [Combine](https://developer.apple.com/documentation/combine). For that reason, the app hasn't any [View Controllers](https://developer.apple.com/documentation/uikit/view_controllers). Instead, it is gracefully composed of a hierarchy of [View](https://developer.apple.com/documentation/swiftui/view) protocols. Furthermore, it is completely reactive instead of event-driven like apps created with [UIKit](https://developer.apple.com/documentation/uikit).
+It was created with the latest Apple's technologies like [SwiftUI](https://developer.apple.com/xcode/swiftui/) and [Combine](https://developer.apple.com/documentation/combine). For that reason, the app hasn't any [View Controllers](https://developer.apple.com/documentation/uikit/view_controllers). Instead, it is gracefully composed of a hierarchy of [View](https://developer.apple.com/documentation/swiftui/view) protocols. Furthermore, it is completely reactive instead of event-driven like apps created with [UIKit](https://developer.apple.com/documentation/uikit).
 
 ## App's architecture
 
@@ -23,7 +23,7 @@ For this app, MVVM was choosed for some reasons:
 
 ## Dark Mode, iPad, MacOS, portrait and landscape versions
 
-One of the huge benefits of using SwiftUI is that the same UI code can the used for three different platforms. And because of that, the app works for *iPhone, iPad and MacOS*, on *different screens* sizes and on both *landscape and portrait* mode. Furthermore, it also has both *light and dark mode* version*. 
+One of the huge benefits of using SwiftUI is that the same UI code can be used for three different platforms. And because of that, the app works for *iPhone, iPad and MacOS*, on *different screens* sizes and on both *landscape and portrait* mode. Furthermore, it also has both *light and dark mode* version. 
 
 ![Presentation iPhones](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Presentation%20iPhones.png)
 ![Presentation iPads](https://github.com/almeidaws/desafio-ios-gustavo-amaral/blob/master/Doc/Presentation%20iPads.png)
