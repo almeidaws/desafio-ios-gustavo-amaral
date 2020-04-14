@@ -21,21 +21,21 @@ enum AsyncResult<Resource, ResourceError> where ResourceError: Error {
         }
     }
     
-    func isFinished<Content: View>(@ViewBuilder content: (Resource) -> Content) -> Content? {
+    func whenFinished<Content: View>(@ViewBuilder content: (Resource) -> Content) -> Content? {
         switch self {
         case .finished(let resource): return content(resource)
         default: return nil
         }
     }
     
-    func isLoading<Content: View>(@ViewBuilder content: () -> Content) -> Content? {
+    func whenLoading<Content: View>(@ViewBuilder content: () -> Content) -> Content? {
         switch self {
         case .loading: return content()
         default: return nil
         }
     }
     
-    func isFailed<Content: View>(@ViewBuilder content: (ResourceError) -> Content) -> Content? {
+    func whenFailed<Content: View>(@ViewBuilder content: (ResourceError) -> Content) -> Content? {
         switch self {
         case .failed(let error): return content(error)
         default: return nil

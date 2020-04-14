@@ -18,13 +18,13 @@ struct MostExpensiveHQView: View {
         ContainerOrientation { orientation in
             GeometryReader { geometry in
                 ScrollView {
-                    self.viewModel.hq.isLoading {
+                    self.viewModel.hq.whenLoading {
                         Group {
                             ActivityIndicator(style: .large)
                         }.frame(width: geometry.size.width, height: geometry.size.height)
                     }
                     
-                    self.viewModel.hq.isFinished { comic in
+                    self.viewModel.hq.whenFinished { comic in
                         comic.some { comic in
                             VStack(alignment: .leading) {
                                 URLImage(imageLoader: self.imageLoaderFactory(comic.thumbnail.sized(orientation == .portrait ? .portraitUncanny : .landscapeIncredible)))
@@ -43,7 +43,7 @@ struct MostExpensiveHQView: View {
                         }
                     }
                     
-                    self.viewModel.hq.isFailed { networkError in
+                    self.viewModel.hq.whenFailed { networkError in
                         RetryMessage(title: "Oops..", message: networkError.localizedDescription) {
                             self.viewModel.loadHQ(self.character)
                         }

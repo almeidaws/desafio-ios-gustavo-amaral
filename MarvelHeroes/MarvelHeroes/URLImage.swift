@@ -22,7 +22,7 @@ struct URLImage: View {
     
     var body: some View {
         Group {
-            imageLoader.image.isLoading {
+            imageLoader.image.whenLoading {
                 AnyView(
                     ActivityIndicator(style: .medium)
                     .opacity(isHidden ? 1 : 0)
@@ -30,7 +30,7 @@ struct URLImage: View {
                 )
             }
             
-            imageLoader.image.isFinished { image in
+            imageLoader.image.whenFinished { image in
                 AnyView(
                     Image(uiImage: image)
                         .resizable()
@@ -42,7 +42,7 @@ struct URLImage: View {
                 )
             }
             
-            imageLoader.image.isFailed { _ in
+            imageLoader.image.whenFailed { _ in
                 AnyView(
                     Image(systemName: "xmark.octagon")
                         .opacity(isHidden ? 1 : 0)

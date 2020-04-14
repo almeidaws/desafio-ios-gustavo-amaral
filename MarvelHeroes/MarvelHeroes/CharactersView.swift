@@ -22,7 +22,7 @@ struct CharactersView: View {
     var body: some View {
         NavigationView {
             Section {
-                viewModel.characters.isFinished { characters in
+                viewModel.characters.whenFinished { characters in
                     List(characters) { character in
                         CharacterRow(character: character, presentedCharacter: self.$presentedCharacter)
                             .onAppear() { self.viewModel.characterDidAppear(character) }
@@ -30,11 +30,11 @@ struct CharactersView: View {
                     }.listStyle(GroupedListStyle())
                 }
                 
-                viewModel.characters.isLoading {
+                viewModel.characters.whenLoading {
                     ActivityIndicator(style: .large)
                 }
                 
-                viewModel.characters.isFailed { networkError in
+                viewModel.characters.whenFailed { networkError in
                     RetryMessage(title: "Oops…", message: networkError.localizedDescription) {
                         self.viewModel.retry()
                     }
