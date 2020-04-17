@@ -111,7 +111,7 @@ Furthermore, to make requests it is necessary to add app's bundle identifier as 
 
 ## My personal experience
 
-Create this project in just 4 days was a big challenge, but it was worthy. I used [CBL](https://www.challengebasedlearning.org/) to work (what is almost the same thing as study in IT, XD ) on this project.
+Create this project in just 4 days was a big challenge, but it was worth it. I used [CBL](https://www.challengebasedlearning.org/) to work (what is almost the same thing as study in IT, XD ) on this project.
 
 I had just superficial knowledge about SwiftUI and even less about Combine before starting to code. So the challenge was to apply those two technologies while learning them, and taking care to create a high quality code and follow the best patterns.
 
