@@ -13,7 +13,7 @@ It was created with the latest Apple's technologies like [SwiftUI](https://devel
 
 Views from SwiftUI are like functions that return a screen based the data given to it. It is functional. Considering those facts, there is a new way to implement [MVVM](https://nalexn.github.io/clean-architecture-swiftui/) and another new one called [Composable](https://www.pointfree.co/collections/composable-architecture).
 
-For this app, MVVM was choosed for some reasons:
+For this app, MVVM was picked for some reasons:
 
 1. It is not [opinionated](https://stackoverflow.com/a/802064/8869936).
 2. It fits well the idea of handling any necessary logic and delivering to the UI data ready to be presented.
@@ -57,7 +57,7 @@ The data is correctly mocked using [Dependency Injection](https://en.wikipedia.o
 
 ## The new Swift Package Manager instead of CocoaPods or Carthage
 
-Recreating already existent code may be expensive in time and cost, so [Swift Package Manager](https://swift.org/package-manager/) was choosed as the dependency manager to install [Alamofire](https://github.com/Alamofire/Alamofire), [AlamofireImage](https://github.com/Alamofire/AlamofireImage) and [SnapshotTesting](https://github.com/pointfreeco/swift-snapshot-testing) frameworks. 
+Recreating already existent code may be expensive in time and cost, so [Swift Package Manager](https://swift.org/package-manager/) was picked as the dependency manager to install [Alamofire](https://github.com/Alamofire/Alamofire), [AlamofireImage](https://github.com/Alamofire/AlamofireImage) and [SnapshotTesting](https://github.com/pointfreeco/swift-snapshot-testing) frameworks. 
 
 CocoaPods and Carthage could be a choice, but the new SPM is completely integrated with Xcode decreasing the number of problems related to dependency installing, making the work more productive.
 
